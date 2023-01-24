@@ -6,7 +6,7 @@ import ca.ntro.app.frontend.FrontendRegistrarFx;
 import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
 
-public class MonProjetLocal implements NtroClientFx {
+public class UnoCardsLocal implements NtroClientFx {
 	
 	public static void main(String[] args) {
 		NtroClientFx.launch(args);

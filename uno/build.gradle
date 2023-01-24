@@ -41,7 +41,7 @@ def commonConfig = {
 
 def localConfig = {
    configure commonConfig
-   main = "uno.MonProjetLocal"
+   main = "uno.UnoCardsLocal"
    jvmArgs('-Dsun.java2d.opengl=true')
 }
 
