@@ -1,0 +1,26 @@
+.conteneur {
+}
+
+#vue-racine {
+    -fx-border-color:darkred;
+}
+
+#vue-file-attente {
+    -fx-border-color:darkblue;
+    
+ 	-fx-alignment:bottom-left;
+ 	
+ 	-fx-background-color:blue;
+}
+
+.gros-bouton {
+    -fx-font-size: 1.2em;
+}
+
+.gros-bouton:pressed {
+    -fx-font-size: 1em;
+}
+
+.gros-bouton:hover {
+    -fx-cursor: hand;
+}
