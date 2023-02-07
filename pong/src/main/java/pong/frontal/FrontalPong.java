@@ -1,5 +1,6 @@
 package pong.frontal;
 
+import ca.ntro.app.NtroApp;
 import ca.ntro.app.frontend.FrontendFx;
 import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.frontend.events.EventRegistrar;
@@ -29,11 +30,18 @@ public class FrontalPong implements FrontendFx{
 
 	@Override
 	public void registerViews(ViewRegistrarFx registrar) {
+		
+		// Le XML
 		registrar.registerView(VueRacine.class, "/racine.xml");
 		registrar.registerView(VueFileAttente.class, "/file_attente.xml");
 		
+		// Le CSS
 		// registrar.registerStylesheet("/dev.css");
-		registrar.registerStylesheet("/prod.css");
+		 registrar.registerStylesheet("/prod.css");
+		 
+		 // La LANGUE
+		 registrar.registerDefaultResources("/chaine_fr.properties");
+		 registrar.registerResources(NtroApp.locale("en"), "/chaine_en.properties");
 
 	}
 

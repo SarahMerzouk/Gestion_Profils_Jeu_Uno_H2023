@@ -8,13 +8,14 @@
 #vue-file-attente {
     -fx-border-color:darkblue;
     
- 	-fx-alignment:bottom-left;
+ 	-fx-alignment:center;
  	
- 	-fx-background-color:blue;
+ 	-fx-background-color:grey;
 }
 
 .gros-bouton {
     -fx-font-size: 1.2em;
+
 }
 
 .gros-bouton:pressed {
