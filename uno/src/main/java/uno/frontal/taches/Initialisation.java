@@ -8,7 +8,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-
+import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
 
@@ -22,13 +22,14 @@ public class Initialisation {
 			.contains(subTasks -> {
 				
 				creerVueRacine(subTasks);
-				
 				installerVueRacine(subTasks);
 				
 				
-				creerVueProfilDesJoueurs(subTasks);
+				creerVueAcceuil(subTasks);
+				installerVueAcceuil(subTasks);
 				
-				installerVueProfilDesJoueurs(subTasks);
+				//creerVueProfilDesJoueurs(subTasks);
+				//installerVueProfilDesJoueurs(subTasks);
 				
 				
 				afficherFenetre(subTasks);
@@ -83,6 +84,41 @@ public class Initialisation {
                   Window    window    = inputs.get(window());
 
                   window.installRootView(vueRacine);
+              });
+    }
+    
+    // VUE ACCEUIL
+    private static void creerVueAcceuil(FrontendTasks tasks) {
+
+        tasks.task(create(VueAcceuil.class))
+
+             .waitsFor(viewLoader(VueAcceuil.class))
+
+             .thenExecutesAndReturnsValue(inputs -> {
+
+                 ViewLoader<VueAcceuil> viewLoader = inputs.get(viewLoader(VueAcceuil.class));
+
+                 VueAcceuil vueAcceuil = viewLoader.createView();
+
+                 return vueAcceuil;
+             });
+    }
+
+    private static void installerVueAcceuil(FrontendTasks tasks) {
+
+        tasks.task("installerVueAcceuil")
+
+              .waitsFor(created(VueRacine.class))
+
+              .waitsFor(created(VueAcceuil.class))
+
+              .thenExecutes(inputs -> {
+
+                  VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
+                  VueAcceuil vueAcceuil = inputs.get(created(VueAcceuil.class));
+
+                  vueRacine.afficherSousVue(vueAcceuil);
+
               });
     }
     

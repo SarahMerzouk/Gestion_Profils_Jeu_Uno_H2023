@@ -7,6 +7,7 @@ import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 
 import uno.frontal.taches.Initialisation;
+import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
 
@@ -33,6 +34,7 @@ public class FrontalUno implements FrontendFx{
 		// Le XML
 		registrar.registerView(VueRacine.class, "/racine.xml");
 		registrar.registerView(VueProfilDesJoueurs.class, "/profilJoueurs.xml");
+		registrar.registerView(VueAcceuil.class, "/acceuil.xml");
 		
 		// Le CSS
 		 registrar.registerStylesheet("/profilJoueurs.css");

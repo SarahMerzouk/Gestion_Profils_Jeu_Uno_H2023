@@ -12,20 +12,32 @@
     id="vue-profil-des-joueurs">
 
 	<Label 
-		text="%textePresentation"
+		text="%textePage"
 		id="texte" >
 	</Label>
-    
-    <ImageView id="logo">     
-        <image>
-            <Image url="@logoProfil.jpg"/>
-        </image>
-    </ImageView>
 
     <Button 
-        text="%gererProfils"
+        text="%button_ajouter"
         styleClass="gros-bouton"
-        id="button-gerer-profils">
+        id="button-ajouterUser">
+    </Button>
+    
+     <Button 
+        text="%button_supprimer"
+        styleClass="gros-bouton"
+        id="button-supprimerUser">
+    </Button>
+    
+    <Button 
+        text="%button_voirInfos"
+        styleClass="gros-bouton"
+        id="button-voirInfos">
+    </Button>
+    
+    <Button 
+        text="%button_retour"
+        styleClass="gros-bouton"
+        id="button-retourAcceuil">
     </Button>
 
 </VBox>

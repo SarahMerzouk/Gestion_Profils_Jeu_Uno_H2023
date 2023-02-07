@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="uno.frontal.vues.VueAcceuil" 
+    styleClass="conteneur"
+    id="vue-acceuil">
+
+	<Label 
+		text="%textePresentation"
+		id="texte" >
+	</Label>
+    
+    <ImageView id="logo">     
+        <image>
+            <Image url="@logoProfil.jpg"/>
+        </image>
+    </ImageView>
+
+    <Button 
+        text="%button_gererProfils"
+        styleClass="gros-bouton"
+        id="button-gerer-profils">
+    </Button>
+
+</VBox>
