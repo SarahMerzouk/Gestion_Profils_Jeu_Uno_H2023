@@ -35,7 +35,7 @@
  	-fx-background-color: rgb(0, 0, 120);
 }
 
-#button-gerer-profils {
+#button {
     -fx-background-color: 
         linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
         linear-gradient(#020b02, #3a3a3a),
@@ -45,88 +45,26 @@
     -fx-background-radius: 9,8,5,4;
     -fx-padding: 15 30 15 30;
     -fx-font-family: "Microsoft Sans Serif";
-    -fx-font-weight: bold;
     -fx-text-fill: #333333;
     -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+    -fx-alignement:center;
 }
-
-#button-ajouterUser {
-    -fx-background-color: 
-        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
-        linear-gradient(#020b02, #3a3a3a),
-        linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
-        linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
-    -fx-background-insets: 0,1,4,5;
-    -fx-background-radius: 9,8,5,4;
-    -fx-padding: 15 30 15 30;
-    -fx-font-family: "Microsoft Sans Serif";
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
-}
-
-#button-supprimerUser{
-    -fx-background-color: 
-        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
-        linear-gradient(#020b02, #3a3a3a),
-        linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
-        linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
-    -fx-background-insets: 0,1,4,5;
-    -fx-background-radius: 9,8,5,4;
-    -fx-padding: 15 30 15 30;
-    -fx-font-family: "Microsoft Sans Serif";
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
-}
-
-#button-voirInfos {
-    -fx-background-color: 
-        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
-        linear-gradient(#020b02, #3a3a3a),
-        linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
-        linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
-    -fx-background-insets: 0,1,4,5;
-    -fx-background-radius: 9,8,5,4;
-    -fx-padding: 15 30 15 30;
-    -fx-font-family: "Microsoft Sans Serif";
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
-}
-
-#button-retourAcceuil {
-    -fx-background-color: 
-        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
-        linear-gradient(#020b02, #3a3a3a),
-        linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
-        linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
-    -fx-background-insets: 0,1,4,5;
-    -fx-background-radius: 9,8,5,4;
-    -fx-padding: 15 30 15 30;
-    -fx-font-family: "Microsoft Sans Serif";
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
-}
-
 
 #logo {
-	-fx-scale-x:0.60;
-	-fx-scale-y:0.60;
+	-fx-scale-x:0.70;
+	-fx-scale-y:0.90;
+	-fx-alignement:left;
 }
 
 #texte {
-	-fx-text-fill:white;
+	-fx-text-fill:grey;
 	-fx-font-family:"Goudy Old Style";
-    -fx-font-weight: bold;
 	-fx-font-size:25px;
 }
 
 #texte-presentation-liste {
-	-fx-text-fill:white;
+	-fx-text-fill:red;
 	-fx-font-family:"Goudy Old Style";
-    -fx-font-weight: light;
 	-fx-font-size:20px;
 	-fx-alignment:right;
 }
@@ -134,7 +72,18 @@
 #label-un-joueur {
 	-fx-text-fill:white;
 	-fx-font-family:"Goudy Old Style";
-    -fx-font-weight: light;
 	-fx-font-size:16px;	
 	-fx-alignment:right;
+}
+
+#hbox {
+	-fx-spacing:100;
+}
+
+#vbox-button{
+	-fx-alignment:center;
+}
+
+#vbox-listeJoueurs {
+	-fx-alignment:center;
 }

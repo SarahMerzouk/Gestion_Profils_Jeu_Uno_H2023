@@ -25,8 +25,8 @@ public class Initialisation {
 				installerVueRacine(subTasks);
 				
 				
-				creerVueAcceuil(subTasks);
-				installerVueAcceuil(subTasks);
+				//creerVueAcceuil(subTasks);
+				//installerVueAcceuil(subTasks);
 				
 				creerVueProfilDesJoueurs(subTasks);
 				installerVueProfilDesJoueurs(subTasks);
@@ -48,7 +48,7 @@ public class Initialisation {
 				Window window = inputs.get(window());
 				
 				// changer fenêtre
-				window.resize(750, 500);
+				window.resize(1200, 400);
 				window.show();
 			});
 	}
@@ -86,7 +86,8 @@ public class Initialisation {
                   window.installRootView(vueRacine);
               });
     }
-    
+    /*
+     * 
     // VUE ACCEUIL
     private static void creerVueAcceuil(FrontendTasks tasks) {
 
@@ -121,6 +122,8 @@ public class Initialisation {
 
               });
     }
+    
+    */
     
     // TACHE DE LA VUE PROFIL DES JOUEURS
     private static void creerVueProfilDesJoueurs(FrontendTasks tasks) {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
@@ -11,52 +12,64 @@
     styleClass="conteneur"
     id="vue-profil-des-joueurs">
 
-	<Label 
-		text="%textePage"
-		id="texte" >
-	</Label>
+	<HBox id="hbox">
+	    
+	    <VBox>
+	    	<ImageView id="logo">     
+		        <image>
+		            <Image url="@logoProfil.jpg"/>
+		        </image>
+		    </ImageView>
+	    </VBox>
+	    
+		<VBox id="vbox-button">
+	    
+			<Label 
+				text="%textePage"
+				id="texte" >
+			</Label>
+		    
+		    <Button 
+		        text="%button_ajouter"
+		        styleClass="gros-bouton"
+		        id="button">
+		    </Button>
+		    
+		     <Button 
+		        text="%button_supprimer"
+		        styleClass="gros-bouton"
+		        id="button">
+		    </Button>
+		    
+		    <Button 
+		        text="%button_voirInfos"
+		        styleClass="gros-bouton"
+		        id="button">
+		    </Button>
+		    
+		    <Button
+		    	fx:id="boutonRetourVersAcceuil" 
+		        text="%button_retour"
+		        styleClass="gros-bouton"
+		        id="button">
+		    </Button>
+	    
+	    </VBox>
+	    
+	    <VBox id="vbox-listeJoueurs">
+		    <!-- La liste des joueurs -->
+		    <Label
+		     text="%textePresentationListe" 
+		     id="texte-presentation-liste">
+		    </Label>
+		    
+		    <Label 
+			    fx:id="labelUnJoueur"
+			    id="label-un-joueur"
+			    text="labelUnJoueur">
+			</Label>
+		</VBox>
 	
-	<ImageView id="logo">     
-        <image>
-            <Image url="@logoProfil.jpg"/>
-        </image>
-    </ImageView>
-    
-    <Button 
-        text="%button_ajouter"
-        styleClass="gros-bouton"
-        id="button-ajouterUser">
-    </Button>
-    
-     <Button 
-        text="%button_supprimer"
-        styleClass="gros-bouton"
-        id="button-supprimerUser">
-    </Button>
-    
-    <Button 
-        text="%button_voirInfos"
-        styleClass="gros-bouton"
-        id="button-voirInfos">
-    </Button>
-    
-    <Button
-    	fx:id="boutonRetourVersAcceuil" 
-        text="%button_retour"
-        styleClass="gros-bouton"
-        id="button-retourAcceuil">
-    </Button>
-    
-    <!-- La liste des joueurs -->
-    <Label
-     text="%textePresentationListe" 
-     id="texte-presentation-liste">
-    </Label>
-    
-    <Label 
-	    fx:id="labelUnJoueur"
-	    id="label-un-joueur"
-	    text="labelUnJoueur">
-	</Label>
+	</HBox>
 
 </VBox>

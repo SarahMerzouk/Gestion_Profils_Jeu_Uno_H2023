@@ -17,7 +17,7 @@ public class AfficherProfil {
 			
 			.andContains(subTasks -> {
 				
-				afficherProfil(tasks);
+				afficherProfil(subTasks);
 				
 			});
 	}
@@ -34,8 +34,9 @@ public class AfficherProfil {
                  Modified<ModeleProfil> profil    = inputs.get(modified(ModeleProfil.class));
 
                  ModeleProfil ancienProfil = profil.previousValue();
-                 ModeleProfil nouveauProfil = profil.currentValue();
-
+                 ModeleProfil profilCourrant = profil.currentValue();
+                 
+                 profilCourrant.afficherSur(vueProfil);
 
              });
     }

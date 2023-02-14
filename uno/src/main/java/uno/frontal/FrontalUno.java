@@ -9,6 +9,7 @@ import uno.frontal.evenements.EvtAfficherAcceuil;
 import uno.frontal.evenements.EvtAfficherProfil;
 import uno.frontal.taches.AfficherProfil;
 import uno.frontal.taches.Initialisation;
+import uno.frontal.taches.Navigation;
 import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
@@ -21,6 +22,9 @@ public class FrontalUno implements FrontendFx{
 		Initialisation.creerTaches(tasks);
 		
 		AfficherProfil.creerTaches(tasks);
+		
+		Navigation.creerTaches(tasks);
+		
 	}
 
 	@Override
