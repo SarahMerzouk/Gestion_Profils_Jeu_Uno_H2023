@@ -5,7 +5,9 @@ import ca.ntro.app.frontend.FrontendFx;
 import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-
+import uno.frontal.evenements.EvtAfficherAcceuil;
+import uno.frontal.evenements.EvtAfficherProfil;
+import uno.frontal.taches.AfficherProfil;
 import uno.frontal.taches.Initialisation;
 import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueProfilDesJoueurs;
@@ -15,7 +17,10 @@ public class FrontalUno implements FrontendFx{
 
 	@Override
 	public void createTasks(FrontendTasks tasks) {
+		
 		Initialisation.creerTaches(tasks);
+		
+		AfficherProfil.creerTaches(tasks);
 	}
 
 	@Override
@@ -26,6 +31,9 @@ public class FrontalUno implements FrontendFx{
 	@Override
 	public void registerEvents(EventRegistrar registrar) {
 		
+		registrar.registerEvent(EvtAfficherAcceuil.class);
+		
+		registrar.registerEvent(EvtAfficherProfil.class);
 	}
 
 	@Override
@@ -37,7 +45,7 @@ public class FrontalUno implements FrontendFx{
 		registrar.registerView(VueAcceuil.class, "/acceuil.xml");
 		
 		// Le CSS
-		 registrar.registerStylesheet("/profilJoueurs.css");
+		 registrar.registerStylesheet("/style.css");
 		 
 		 // La LANGUE
 		 registrar.registerDefaultResources("/chaine_fr.properties");

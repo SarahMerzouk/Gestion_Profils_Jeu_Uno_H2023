@@ -5,7 +5,7 @@ import ca.ntro.app.models.ModelValue;
 public class RendezVous implements ModelValue {
 	
 	private String idRendezVous;
-	private String premierJoueur;
+	private Usager premierJoueur;
 	    
 	public RendezVous() {
 		
@@ -19,13 +19,16 @@ public class RendezVous implements ModelValue {
 		this.idRendezVous = idRendezVous;
 	}
 
-	public String getPremierJoueur() {
+	public Usager getPremierJoueur() {
 		return premierJoueur;
 	}
 
-	public void setPremierJoueur(String premierJoueur) {
+	public void setPremierJoueur(Usager premierJoueur) {
 		this.premierJoueur = premierJoueur;
 	}
 	
-	
+	@Override
+    public String toString() {
+        return premierJoueur.toString();
+    }
 }

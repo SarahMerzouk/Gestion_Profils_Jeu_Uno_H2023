@@ -40,10 +40,23 @@
         id="button-voirInfos">
     </Button>
     
-    <Button 
+    <Button
+    	fx:id="boutonRetourVersAcceuil" 
         text="%button_retour"
         styleClass="gros-bouton"
         id="button-retourAcceuil">
     </Button>
+    
+    <!-- La liste des joueurs -->
+    <Label
+     text="%textePresentationListe" 
+     id="texte-presentation-liste">
+    </Label>
+    
+    <Label 
+	    fx:id="labelUnJoueur"
+	    id="label-un-joueur"
+	    text="labelUnJoueur">
+	</Label>
 
 </VBox>

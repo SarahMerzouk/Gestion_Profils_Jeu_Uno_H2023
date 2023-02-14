@@ -23,6 +23,7 @@
     </ImageView>
 
     <Button 
+    	fx:id="boutonVersProfils"
         text="%button_gererProfils"
         styleClass="gros-bouton"
         id="button-gerer-profils">

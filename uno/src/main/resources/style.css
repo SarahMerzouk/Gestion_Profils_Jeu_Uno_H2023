@@ -122,3 +122,19 @@
     -fx-font-weight: bold;
 	-fx-font-size:25px;
 }
+
+#texte-presentation-liste {
+	-fx-text-fill:white;
+	-fx-font-family:"Goudy Old Style";
+    -fx-font-weight: light;
+	-fx-font-size:20px;
+	-fx-alignment:right;
+}
+
+#label-un-joueur {
+	-fx-text-fill:white;
+	-fx-font-family:"Goudy Old Style";
+    -fx-font-weight: light;
+	-fx-font-size:16px;	
+	-fx-alignment:right;
+}

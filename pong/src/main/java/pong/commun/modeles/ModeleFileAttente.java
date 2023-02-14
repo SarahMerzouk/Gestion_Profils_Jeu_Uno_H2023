@@ -6,12 +6,15 @@ import java.util.List;
 import ca.ntro.app.models.Model;
 import ca.ntro.app.models.Watch;
 import ca.ntro.app.models.WriteObjectGraph;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import pong.commun.valeurs.RendezVous;
+import pong.frontal.vues.VueFileAttente;
 
 public class ModeleFileAttente implements Model, Watch, WriteObjectGraph {
 
 	private long prochainIdRendezVous = 1;
-	
+
 	private List<RendezVous> lesRendezVous = new ArrayList<>();
 
 	public ModeleFileAttente() {
@@ -28,13 +31,36 @@ public class ModeleFileAttente implements Model, Watch, WriteObjectGraph {
 	
 	
 
-	public List<RendezVous> getLesRendezVousDansOrdre() {
+	public List<RendezVous> getLesRendezVous() {
 		return lesRendezVous;
 	}
 
-	public void setLesRendezVousDansOrdre(List<RendezVous> lesRendezVous) {
+	public void setLesRendezVous(List<RendezVous> lesRendezVous) {
 		this.lesRendezVous = lesRendezVous;
 	}
 	
+	public void afficherSur(VueFileAttente vueFileAttente) {
+
+        vueFileAttente.afficherRendezVousEnTexte(this.toString());
+    }
+	
+	@Override
+    public String toString() {
+
+        StringBuilder builder = new StringBuilder();
+        int numeroRendezVous = 1;
+
+        for(RendezVous rendezVous : lesRendezVous) {
+
+            builder.append(numeroRendezVous);
+            builder.append(". ");
+            builder.append(rendezVous.toString());
+            builder.append("\n");
+
+            numeroRendezVous++;
+        }
+
+        return builder.toString();
+    }
 	
 }

@@ -25,8 +25,8 @@ public class Initialisation {
 				installerVueRacine(subTasks);
 				
 				
-				//creerVueAcceuil(subTasks);
-				//installerVueAcceuil(subTasks);
+				creerVueAcceuil(subTasks);
+				installerVueAcceuil(subTasks);
 				
 				creerVueProfilDesJoueurs(subTasks);
 				installerVueProfilDesJoueurs(subTasks);

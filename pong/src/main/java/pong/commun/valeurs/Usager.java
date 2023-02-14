@@ -36,5 +36,12 @@ public class Usager implements ModelValue {
 		this.nom = nom;
 	}
 	
-	
+	@Override
+    public String toString() {
+        return nomComplet();
+    }
+
+    public String nomComplet() {
+        return prenom + " " + nom;
+    }
 }

@@ -10,6 +10,8 @@
     -fx-border-color:darkblue;
     
  	-fx-alignment:center;
+ 	
+ 	-fx-background-color:grey;
 }
 
 .gros-bouton {
@@ -22,4 +24,12 @@
 
 .gros-bouton:hover {
     -fx-cursor: hand;
+}
+
+#vue-partie {
+    -fx-border-color:darkgreen;
+    
+    -fx-alignment:center;
+ 	
+ 	-fx-background-color:grey;
 }

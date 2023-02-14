@@ -37,7 +37,7 @@ public class AfficherFileAttente {
                  ModeleFileAttente ancienneFile = fileAttente.previousValue();
                  ModeleFileAttente fileCourante = fileAttente.currentValue();
 
-                 // Prêt à afficher les rendez-vous!
+                 fileCourante.afficherSur(vueFileAttente);
 
              });
     }

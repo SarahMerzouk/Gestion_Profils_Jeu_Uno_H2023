@@ -5,6 +5,8 @@ import ca.ntro.app.backend.BackendRegistrar;
 import ca.ntro.app.frontend.FrontendRegistrarFx;
 import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
+import uno.commun.modeles.ModeleProfil;
+import uno.commun.valeurs.Joueur;
 import uno.frontal.FrontalUno;
 
 public class UnoCardsLocal implements NtroClientFx {
@@ -32,7 +34,10 @@ public class UnoCardsLocal implements NtroClientFx {
 
 	@Override
 	public void registerModels(ModelRegistrar registrar) {
-		// TODO Auto-generated method stub
+		
+		registrar.registerModel(ModeleProfil.class);
+		
+		registrar.registerValue(Joueur.class);
 		
 	}
 
