@@ -6,6 +6,9 @@ import ca.ntro.app.frontend.FrontendRegistrarFx;
 import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
 import pong.commun.modeles.ModeleFileAttente;
+import pong.commun.valeurs.PartieEnCours;
+import pong.commun.valeurs.RendezVous;
+import pong.commun.valeurs.Usager;
 import pong.frontal.FrontalPong;
 
 public class PongLocal implements NtroClientFx {
@@ -36,6 +39,12 @@ public class PongLocal implements NtroClientFx {
 	public void registerModels(ModelRegistrar registrar) {
 		
 		registrar.registerModel(ModeleFileAttente.class);
+		
+		registrar.registerValue(Usager.class);
+		
+		registrar.registerValue(RendezVous.class);
+		
+		registrar.registerValue(PartieEnCours.class);
 		
 	}
 
