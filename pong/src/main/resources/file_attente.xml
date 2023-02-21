@@ -24,6 +24,13 @@
         id="bouton-joindre-partie">
     </Button>
     
+    <Button 
+    fx:id="boutonSInscrire" 
+    text="%sInscrire"
+    styleClass="gros-bouton"
+    id="bouton-s-inscrire">
+	</Button>
+
     <Label text="%lesRendezVous" styleClass="moyen-texte"/>
     
     <Label 

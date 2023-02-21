@@ -5,10 +5,12 @@ import ca.ntro.app.backend.BackendRegistrar;
 import ca.ntro.app.frontend.FrontendRegistrarFx;
 import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
+import pong.commun.messages.MsgAjouterRendezVous;
 import pong.commun.modeles.ModeleFileAttente;
 import pong.commun.valeurs.PartieEnCours;
 import pong.commun.valeurs.RendezVous;
 import pong.commun.valeurs.Usager;
+import pong.dorsal.DorsalPong;
 import pong.frontal.FrontalPong;
 
 public class PongLocal implements NtroClientFx {
@@ -19,8 +21,8 @@ public class PongLocal implements NtroClientFx {
 
 	@Override
 	public void registerBackend(BackendRegistrar registrar) {
-		// TODO Auto-generated method stub
 		
+		registrar.registerBackend(new DorsalPong());
 	}
 
 	@Override
@@ -31,8 +33,8 @@ public class PongLocal implements NtroClientFx {
 
 	@Override
 	public void registerMessages(MessageRegistrar registrar) {
-		// TODO Auto-generated method stub
 		
+		registrar.registerMessage(MsgAjouterRendezVous.class);
 	}
 
 	@Override

@@ -48,7 +48,7 @@ public class Initialisation {
 				Window window = inputs.get(window());
 				
 				// changer fenêtre
-				window.resize(1200, 400);
+				window.resize(1200, 500);
 				window.show();
 			});
 	}

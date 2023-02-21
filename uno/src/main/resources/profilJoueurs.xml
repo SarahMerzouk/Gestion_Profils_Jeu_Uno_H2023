@@ -30,6 +30,7 @@
 			</Label>
 		    
 		    <Button 
+		    	fx:id="boutonAjouter"
 		        text="%button_ajouter"
 		        styleClass="gros-bouton"
 		        id="button">

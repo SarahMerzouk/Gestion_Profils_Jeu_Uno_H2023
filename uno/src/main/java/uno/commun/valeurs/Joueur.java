@@ -11,6 +11,12 @@ public class Joueur implements ModelValue {
 	public Joueur() {
 		
 	}
+	
+	public Joueur(String id, String nom, String pseudo) {
+		setId(id);
+		setNom(nom);
+		setPseudo(pseudo);
+	}
 
 	public String getId() {
 		return id;

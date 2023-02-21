@@ -10,10 +10,12 @@ import ca.ntro.core.initialization.Ntro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import uno.commun.messages.MsgAjouterProfil;
 import uno.commun.modeles.ModeleProfil;
 import uno.commun.valeurs.Joueur;
 import uno.frontal.evenements.EvtAfficherAcceuil;
 import uno.frontal.evenements.EvtAfficherProfil;
+import uno.maquettes.MaquetteProfils;
 
 public class VueProfilDesJoueurs extends ViewFx{
 	
@@ -23,6 +25,8 @@ public class VueProfilDesJoueurs extends ViewFx{
 	@FXML
 	private Button boutonRetourVersAcceuil;
 	
+	@FXML
+	private Button boutonAjouter;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -31,7 +35,10 @@ public class VueProfilDesJoueurs extends ViewFx{
 		
 		Ntro.assertNotNull("boutonRetourVersAcceuil", boutonRetourVersAcceuil);
 		
+		Ntro.assertNotNull("boutonAjouter", boutonAjouter);
+		
 		installerEvtAfficherAcceuil();
+		installerMsgAjouterProfil();
 	}
 	
 	private void installerEvtAfficherAcceuil() {
@@ -54,5 +61,20 @@ public class VueProfilDesJoueurs extends ViewFx{
 	public void afficherJoueursEnTexte(String message) {
         labelUnJoueur.setText(message);
     }
+	
+	private void installerMsgAjouterProfil() {
+		MsgAjouterProfil msgAjouterProfil = NtroApp.newMessage(MsgAjouterProfil.class);
+	
+		boutonAjouter.setOnAction(evtFx -> {
+			
+			// Le profil courant s'inscrit
+			msgAjouterProfil.setJoueur(MaquetteProfils.usagerCourant());
+			msgAjouterProfil.send();
+			
+			// À chaque clic, on passe un nouveau profil
+			MaquetteProfils.prochainUsager();
+		});
+	
+	}
 
 }

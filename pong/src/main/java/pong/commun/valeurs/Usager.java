@@ -7,9 +7,14 @@ public class Usager implements ModelValue {
 	private String id;
 	private String prenom;
 	private String nom;
-
+	
 	public Usager() {
-
+		
+	}
+	public Usager(String pId, String pPrenom, String Pnom) {
+		id = pId;
+		prenom = pPrenom;
+		nom = Pnom;
 	}
 
 	public String getId() {
