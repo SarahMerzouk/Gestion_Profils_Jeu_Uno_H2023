@@ -5,11 +5,11 @@ import uno.commun.modeles.ModeleProfil;
 import uno.commun.valeurs.Joueur;
 
 public class MsgAjouterProfil extends MessageNtro {
-	
+
 	private Joueur joueur;
-	
+
 	public MsgAjouterProfil() {
-		
+
 	}
 
 	public Joueur getJoueur() {
@@ -19,10 +19,10 @@ public class MsgAjouterProfil extends MessageNtro {
 	public void setJoueur(Joueur joueur) {
 		this.joueur = joueur;
 	}
-	
+
 	public void ajouterA(ModeleProfil profil) {
-		
+
 		profil.ajouterProfil(joueur);
 	}
-	
+
 }
