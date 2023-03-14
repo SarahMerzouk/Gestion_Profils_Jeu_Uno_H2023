@@ -3,7 +3,6 @@ package pong.dorsal.taches;
 import static ca.ntro.app.tasks.backend.BackendTasks.*;
 
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.Watch;
 import ca.ntro.app.models.WriteObjectGraph;
 import ca.ntro.app.tasks.backend.BackendTasks;
 import pong.commun.messages.MsgAjouterRendezVous;

@@ -14,15 +14,16 @@ public class VuePartie extends ViewFx {
 
 	@FXML
 	private Button boutonQuitterPartie;
-
+	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
+	public void initialiser() {
+		
 		Ntro.assertNotNull("boutonQuitterPartie", boutonQuitterPartie);
 		
 		installerEvtAfficherFileAttente();
+		
 	}
-	
+
 	private void installerEvtAfficherFileAttente() {
 
 		EvtAfficherFileAttente evtNtro = NtroApp.newEvent(EvtAfficherFileAttente.class);

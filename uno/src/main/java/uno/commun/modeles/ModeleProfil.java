@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.Watch;
+import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
 import uno.commun.messages.MsgAjouterProfil;
 import uno.commun.valeurs.Joueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
-import uno.maquettes.MaquetteProfils;
 
-public class ModeleProfil implements Model, Watch, WriteObjectGraph {
+public class ModeleProfil implements Model, WatchJson, WriteObjectGraph {
 
 	private List<Joueur> listeDesJoueurs = new ArrayList<>();
 
@@ -29,7 +28,12 @@ public class ModeleProfil implements Model, Watch, WriteObjectGraph {
 
 	public void afficherSur(VueProfilDesJoueurs vueProfilDesJoueurs) {
 
-		vueProfilDesJoueurs.afficherJoueursEnTexte(this.toString());
+		vueProfilDesJoueurs.viderListeProfils();
+        
+        for(Joueur joueur : listeDesJoueurs) {
+            
+        	vueProfilDesJoueurs.ajouterProfil(joueur);
+        }
 	}
 
 	@Override

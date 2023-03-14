@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.Watch;
+import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import pong.commun.messages.MsgAjouterRendezVous;
 import pong.commun.valeurs.RendezVous;
 import pong.commun.valeurs.Usager;
 import pong.frontal.vues.VueFileAttente;
 
-public class ModeleFileAttente implements Model, Watch, WriteObjectGraph {
+public class ModeleFileAttente implements Model, WatchJson, WriteObjectGraph {
 
 	private long prochainIdRendezVous = 1;
 	private List<RendezVous> lesRendezVous = new ArrayList<>();
@@ -40,7 +38,12 @@ public class ModeleFileAttente implements Model, Watch, WriteObjectGraph {
 
 	public void afficherSur(VueFileAttente vueFileAttente) {
 
-		vueFileAttente.afficherRendezVousEnTexte(this.toString());
+		vueFileAttente.viderListeRendezVous();
+
+		for (RendezVous rendezVous : lesRendezVous) {
+
+			vueFileAttente.ajouterRendezVous(rendezVous);
+		}
 	}
 
 	@Override

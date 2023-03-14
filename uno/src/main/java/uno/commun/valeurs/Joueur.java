@@ -1,6 +1,8 @@
 package uno.commun.valeurs;
 
+import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.ModelValue;
+import uno.frontal.fragments.FragmentProfil;
 
 public class Joueur implements ModelValue {
 	
@@ -42,5 +44,12 @@ public class Joueur implements ModelValue {
 		this.pseudo = pseudo;
 	}
 	
+	public FragmentProfil creerFragment(ViewLoader<FragmentProfil> viewLoaderProfil){
+
+		return viewLoaderProfil.createView();
+	}
 	
+	public void afficherSur(FragmentProfil fragmentProfil) {
+		fragmentProfil.afficherPseudoDuJoueur(getPseudo());
+    }
 }

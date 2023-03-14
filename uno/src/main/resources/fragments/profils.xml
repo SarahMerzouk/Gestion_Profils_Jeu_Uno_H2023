@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="uno.frontal.fragments.FragmentProfil" 
+    styleClass="conteneur,vue-profil-des-joueurs">
+    
+    <HBox>    	
+    
+    	<Pane styleClass="grand-espace-horizontal"/>
+    
+        <HBox HBox.hgrow="ALWAYS" styleClass="profil">
+            <Button 
+                fx:id="boutonVoirInfos" 
+                text="%voirInfos"
+                styleClass="bouton-voirInfos">
+            </Button>
+            
+             <Pane minHeight="30" minWidth="130"/>   
+                
+            <Label
+                fx:id="labelPseudoJoueur"
+                styleClass="label-pseudo-joueur">
+            </Label>
+            
+             <Pane HBox.hgrow="ALWAYS" minHeight="30" minWidth="50"/>
+               
+            <Button 
+                fx:id="boutonRetirerProfil" 
+                text="%retirerProfil"
+                styleClass="bouton-retirer">
+            </Button>
+        </HBox>
+        
+        <Pane styleClass="grand-espace-horizontal"/>
+            
+    </HBox>
+    
+    <Pane styleClass="petit-espace-vertical"/>
+    
+</VBox>
+

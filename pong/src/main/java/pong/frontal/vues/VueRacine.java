@@ -7,10 +7,11 @@ import ca.ntro.app.views.ViewFx;
 import javafx.scene.layout.Pane;
 
 public class VueRacine extends ViewFx {
-
+	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// On s'en sert au module 4
+	public void initialiser() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	public void afficherSousVue(ViewFx sousVue) {
@@ -20,5 +21,7 @@ public class VueRacine extends ViewFx {
 		rootNode().getChildren().clear();
 		rootNode().getChildren().add(racineSousVue);
 	}
+
+	
 
 }

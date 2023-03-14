@@ -1,89 +1,202 @@
 .conteneur {
-    -fx-border-width:10;
+	-fx-border-width: 10;
 }
 
 .gros-bouton {
-    -fx-font-size: 1.2em;
-    -fx-background-color: rgb(192, 192, 192);
+	-fx-font-size: 1.2em;
+	-fx-background-color: rgb(192, 192, 192);
 }
 
 .gros-bouton:pressed {
-    -fx-font-size: 0.8em;
+	-fx-font-size: 0.8em;
 }
 
 .gros-bouton:hover {
-    -fx-cursor: hand;
+	-fx-cursor: hand;
+}
+
+.logo {
+    -fx-min-width:40px;
+    -fx-max-width:150px;
+
+    -fx-min-height:40px;
+    -fx-max-height:150px;
 }
 
 #vue-racine {
-    -fx-border-color:rgb(0, 128, 255);
+	-fx-border-color: rgb(0, 128, 255);
 }
 
 #vue-profil-des-joueurs {
-    -fx-border-color:rgb(0, 179, 255); 	
-    
- 	-fx-alignment:center;
- 	
- 	-fx-background-color: rgb(0, 0, 120);
+	-fx-border-color: rgb(0, 179, 255);
+	-fx-alignment: center;
+	-fx-background-color: rgb(0, 0, 120);
 }
 
 #vue-acceuil {
-    -fx-border-color:rgb(0, 179, 255); 	
-    
- 	-fx-alignment:center;
- 	
- 	-fx-background-color: rgb(0, 0, 120);
+	-fx-border-color: rgb(0, 179, 255);
+	-fx-alignment: center;
+	-fx-background-color: rgb(0, 0, 120);
 }
 
 #button {
-    -fx-background-color: 
-        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
-        linear-gradient(#020b02, #3a3a3a),
-        linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
-        linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
-    -fx-background-insets: 0,1,4,5;
-    -fx-background-radius: 9,8,5,4;
-    -fx-padding: 15 30 15 30;
-    -fx-font-family: "Microsoft Sans Serif";
-    -fx-text-fill: #333333;
-    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
-    -fx-alignement:center;
-}
-
-#logo {
-	-fx-scale-x:0.70;
-	-fx-scale-y:0.90;
-	-fx-alignement:left;
+	-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+		linear-gradient(#020b02, #3a3a3a),
+		linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
+		linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
+	-fx-background-insets: 0, 1, 4, 5;
+	-fx-background-radius: 9, 8, 5, 4;
+	-fx-padding: 15 30 15 30;
+	-fx-font-family: "Microsoft Sans Serif";
+	-fx-text-fill: #333333;
+	-fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.2), 1, 0.0,
+		0, 1);
+	-fx-alignement: center;
 }
 
 #texte {
-	-fx-text-fill:grey;
-	-fx-font-family:"Goudy Old Style";
-	-fx-font-size:25px;
+	-fx-text-fill: grey;
+	-fx-font-family: "Goudy Old Style";
+	-fx-font-size: 25px;
 }
 
 #texte-presentation-liste {
-	-fx-text-fill:red;
-	-fx-font-family:"Goudy Old Style";
-	-fx-font-size:20px;
-	-fx-alignment:right;
+	-fx-text-fill: red;
+	-fx-font-family: "Goudy Old Style";
+	-fx-font-size: 20px;
+	-fx-font-weight: lighter;
 }
 
-#label-un-joueur {
+/*Conteneur qui contiendra mes joueurs*/
+#conteneur-profil {
+	-fx-min-height: 100;
+	-fx-min-width: 100;
+	-fx-alignment: top-center;
+}
+
+.conteneur-parent {
+	-fx-border-color: black;
+	-fx-border-width: 2;
+	-fx-background-color: #0066FF;
+	-fx-alignment: center;
+}
+
+/*Espacements*/
+.petit-espace-vertical {
+    -fx-min-height:10;
+    -fx-max-height:50;
+    -fx-opacity:0.2;
+}
+
+.grand-espace-vertical {
+    -fx-min-height:50;
+    -fx-max-height:200;
+    -fx-opacity:0.2;
+}
+
+.petit-espace-horizontal {
+    -fx-min-width:10;
+    -fx-max-width:50;
+    -fx-opacity:0.2;
+}
+
+.grand-espace-horizontal {
+    -fx-min-width:200;
+    -fx-max-width:300;
+    -fx-opacity:0.2;
+}
+
+/*Style pour mon fragment profil*/
+.bouton-retirer {
+	-fx-background-color: #D64C56;
+	-fx-font-family: Georgia, serif;
+	-fx-font-size: 15px;
+	-fx-min-width:200;
+	-fx-min-height:30;
+}
+
+.bouton-retirer:hover {
+	-fx-background-color: black;
 	-fx-text-fill:white;
-	-fx-font-family:"Goudy Old Style";
-	-fx-font-size:16px;	
-	-fx-alignment:right;
+	-fx-font-family: Georgia, serif;
 }
 
-#hbox {
-	-fx-spacing:100;
+.bouton-retirer:pressed {
+	-fx-font-size: 0.8em;
 }
 
-#vbox-button{
-	-fx-alignment:center;
+.bouton-voirInfos{
+	-fx-background-color: green;
+	-fx-font-family: Georgia, serif;
+	-fx-font-size: 15px;
+	-fx-min-width:200;
+	-fx-min-height:30;
 }
 
-#vbox-listeJoueurs {
-	-fx-alignment:center;
+.bouton-voirInfos:hover{
+	-fx-background-color: black;
+	-fx-text-fill:white;
+	-fx-font-family: Georgia, serif;
+}
+
+.bouton-voirInfos:pressed {
+	-fx-font-size: 0.8em;
+}
+
+.profil {
+	-fx-background-color: #333385;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+	-fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0;
+	-fx-background-radius: 8;
+	-fx-min-width: 200;
+	
+	-fx-border-color: black;
+	-fx-border-width: 1;
+}
+
+.label-pseudo-joueur {
+	-fx-font-family: cursive;
+	-fx-font-style: italic;
+	-fx-text-fill: white;
+	-fx-font-size: 20px;
+}
+
+/*Scroll-bar*/
+.scroll-bar {
+   -fx-background-color: transparent;
+   -fx-border-color: transparent;
+}
+
+.scroll-bar .track {
+   -fx-background-color:#0099CC;
+   -fx-border-color: transparent;
+   -fx-background-radius: 8;
+}
+
+.scroll-bar .thumb {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:#990099;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button,
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow,
+.scroll-bar .corner {
+    -fx-shape : " ";    
+    -fx-background-color: transparent;
+    -fx-visibility: hidden;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color:transparent;
+    -fx-background:transparent;
+}
+
+.scroll-pane {
+    -fx-background-color:transparent;
+    -fx-background:transparent;
+    -fx-hbar-policy:never;
 }

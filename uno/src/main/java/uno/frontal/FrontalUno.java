@@ -7,6 +7,7 @@ import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import uno.frontal.evenements.EvtAfficherAcceuil;
 import uno.frontal.evenements.EvtAfficherProfil;
+import uno.frontal.fragments.FragmentProfil;
 import uno.frontal.taches.AfficherProfil;
 import uno.frontal.taches.Initialisation;
 import uno.frontal.taches.Navigation;
@@ -54,6 +55,9 @@ public class FrontalUno implements FrontendFx{
 		 // La LANGUE
 		 registrar.registerDefaultResources("/chaine_fr.properties");
 		 registrar.registerResources(NtroApp.locale("en"), "/chaine_en.properties");
+		 
+		 // FRAGMENTS
+		 registrar.registerFragment(FragmentProfil.class, "/fragments/profils.xml");
 	}
 
 }

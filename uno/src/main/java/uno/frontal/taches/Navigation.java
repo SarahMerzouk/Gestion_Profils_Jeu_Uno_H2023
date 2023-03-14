@@ -10,6 +10,7 @@ import uno.frontal.vues.VueRacine;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.frontend.ViewLoader;
+import ca.ntro.app.services.Window;
 
 
 public class Navigation {
@@ -23,26 +24,8 @@ public class Navigation {
              .andContains(subTasks -> {
 
                  afficherVueProfil(subTasks);
-                 
-                 creerVueAcceuil(subTasks);
                  afficherVueAcceuil(subTasks);
-
-             });
-    }
-    
-    private static void creerVueAcceuil(FrontendTasks tasks) {
-
-        tasks.task(create(VueAcceuil.class))
-
-             .waitsFor(viewLoader(VueAcceuil.class))
-
-             .thenExecutesAndReturnsValue(inputs -> {
-
-                 ViewLoader<VueAcceuil> viewLoader = inputs.get(viewLoader(VueAcceuil.class));
-
-                 VueAcceuil vueAcceuil = viewLoader.createView();
-
-                 return vueAcceuil;
+               
              });
     }
 
@@ -78,4 +61,5 @@ public class Navigation {
 
               });
     }
+
 }

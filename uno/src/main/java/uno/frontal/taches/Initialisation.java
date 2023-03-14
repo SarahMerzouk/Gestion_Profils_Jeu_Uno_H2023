@@ -8,156 +8,135 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import uno.frontal.fragments.FragmentProfil;
 import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
 
 public class Initialisation {
-	
+
 	// CRÉATION DE TACHES
-	public static void creerTaches (FrontendTasks tasks) {
-		
+	public static void creerTaches(FrontendTasks tasks) {
+
 		tasks.taskGroup("Initialisation")
-		
-			.contains(subTasks -> {
-				
-				creerVueRacine(subTasks);
-				installerVueRacine(subTasks);
-				
-				
-				//creerVueAcceuil(subTasks);
-				//installerVueAcceuil(subTasks);
-				
-				creerVueProfilDesJoueurs(subTasks);
-				installerVueProfilDesJoueurs(subTasks);
-				
-				
-				afficherFenetre(subTasks);
-				
-			});
+
+				.contains(subTasks -> {
+
+					creerVueRacine(subTasks);
+					installerVueRacine(subTasks);
+					
+					creerVueAcceuil(subTasks);
+					
+					creerVueProfilDesJoueurs(subTasks);
+					installerVueProfilDesJoueurs(subTasks);
+
+					afficherFenetre(subTasks);
+
+				});
 	}
-	
+
 	public static void afficherFenetre(FrontendTasks subTasks) {
-		
+
 		subTasks.task("AfficherFenetre")
-		
-			.waitsFor(window())
-			
-			.thenExecutes(inputs -> {
-				
-				Window window = inputs.get(window());
-				
-				// changer fenêtre
-				window.resize(1200, 500);
-				window.show();
-			});
+
+				.waitsFor(window())
+
+				.thenExecutes(inputs -> {
+
+					Window window = inputs.get(window());
+
+					// changer fenêtre
+					window.resize(1200, 500);
+					window.show();
+				});
 	}
-	
-	// TACHE DE LA VUE RACINE
+
 	private static void creerVueRacine(FrontendTasks tasks) {
 
-        tasks.task(create(VueRacine.class))
+		tasks.task(create(VueRacine.class))
 
-             .waitsFor(viewLoader(VueRacine.class))
+				.waitsFor(viewLoader(VueRacine.class))
 
-             .thenExecutesAndReturnsValue(inputs -> {
+				.thenExecutesAndReturnsValue(inputs -> {
 
-                 ViewLoader<VueRacine> viewLoader = inputs.get(viewLoader(VueRacine.class));
+					ViewLoader<VueRacine> viewLoader = inputs.get(viewLoader(VueRacine.class));
 
-                 VueRacine vueRacine = viewLoader.createView();
+					VueRacine vueRacine = viewLoader.createView();
 
-                 return vueRacine;
-             });
-    }
+					return vueRacine;
+				});
+	}
 
-    private static void installerVueRacine(FrontendTasks tasks) {
+	private static void creerVueAcceuil(FrontendTasks tasks) {
 
-        tasks.task("installerVueRacine")
+		tasks.task(create(VueAcceuil.class))
 
-              .waitsFor(window())
+				.waitsFor(viewLoader(VueAcceuil.class))
 
-              .waitsFor(created(VueRacine.class))
+				.thenExecutesAndReturnsValue(inputs -> {
 
-              .thenExecutes(inputs -> {
+					ViewLoader<VueAcceuil> viewLoader = inputs.get(viewLoader(VueAcceuil.class));
 
-                  VueRacine vueRacine = inputs.get(created(VueRacine.class));
-                  Window    window    = inputs.get(window());
+					VueAcceuil vueAcceuil = viewLoader.createView();
 
-                  window.installRootView(vueRacine);
-              });
-    }
-    /*
-     * 
-    // VUE ACCEUIL
-    private static void creerVueAcceuil(FrontendTasks tasks) {
+					return vueAcceuil;
+				});
+	}
 
-        tasks.task(create(VueAcceuil.class))
+	private static void creerVueProfilDesJoueurs(FrontendTasks tasks) {
 
-             .waitsFor(viewLoader(VueAcceuil.class))
+		tasks.task(create(VueProfilDesJoueurs.class))
 
-             .thenExecutesAndReturnsValue(inputs -> {
+				.waitsFor(viewLoader(VueProfilDesJoueurs.class))
+				
+				.waitsFor(viewLoader(FragmentProfil.class))
 
-                 ViewLoader<VueAcceuil> viewLoader = inputs.get(viewLoader(VueAcceuil.class));
+				.thenExecutesAndReturnsValue(inputs -> {
 
-                 VueAcceuil vueAcceuil = viewLoader.createView();
+					ViewLoader<VueProfilDesJoueurs> viewLoaderProfilDesJoueurs = inputs.get(viewLoader(VueProfilDesJoueurs.class));
+					
+					ViewLoader<FragmentProfil>    viewLoaderProfil    = inputs.get(viewLoader(FragmentProfil.class));
 
-                 return vueAcceuil;
-             });
-    }
+					VueProfilDesJoueurs vueProfilDesJoueurs = viewLoaderProfilDesJoueurs.createView();
+					
+					vueProfilDesJoueurs.setViewLoaderProfil(viewLoaderProfil);
+					
+					return vueProfilDesJoueurs;
+				});
+	}
 
-    private static void installerVueAcceuil(FrontendTasks tasks) {
+	private static void installerVueRacine(FrontendTasks tasks) {
 
-        tasks.task("installerVueAcceuil")
+		tasks.task("installerVueRacine")
 
-              .waitsFor(created(VueRacine.class))
+				.waitsFor(window())
 
-              .waitsFor(created(VueAcceuil.class))
+				.waitsFor(created(VueRacine.class))
 
-              .thenExecutes(inputs -> {
+				.thenExecutes(inputs -> {
 
-                  VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
-                  VueAcceuil vueAcceuil = inputs.get(created(VueAcceuil.class));
+					VueRacine vueRacine = inputs.get(created(VueRacine.class));
+					Window window = inputs.get(window());
 
-                  vueRacine.afficherSousVue(vueAcceuil);
+					window.installRootView(vueRacine);
+				});
+	}
 
-              });
-    }
-    
-    */
-    
-    // TACHE DE LA VUE PROFIL DES JOUEURS
-    private static void creerVueProfilDesJoueurs(FrontendTasks tasks) {
+	private static void installerVueProfilDesJoueurs(FrontendTasks tasks) {
 
-        tasks.task(create(VueProfilDesJoueurs.class))
+		tasks.task("installerVueProfilDesJoueurs")
 
-             .waitsFor(viewLoader(VueProfilDesJoueurs.class))
+				.waitsFor(created(VueRacine.class))
 
-             .thenExecutesAndReturnsValue(inputs -> {
+				.waitsFor(created(VueProfilDesJoueurs.class))
 
-                 ViewLoader<VueProfilDesJoueurs> viewLoader = inputs.get(viewLoader(VueProfilDesJoueurs.class));
+				.thenExecutes(inputs -> {
 
-                 VueProfilDesJoueurs vueProfilDesJoueurs = viewLoader.createView();
+					VueRacine vueRacine = inputs.get(created(VueRacine.class));
+					VueProfilDesJoueurs vueProfilDesJoueurs = inputs.get(created(VueProfilDesJoueurs.class));
 
-                 return vueProfilDesJoueurs;
-             });
-    }
+					vueRacine.afficherSousVue(vueProfilDesJoueurs);
 
-    private static void installerVueProfilDesJoueurs(FrontendTasks tasks) {
-
-        tasks.task("installerVueProfilDesJoueurs")
-
-              .waitsFor(created(VueRacine.class))
-
-              .waitsFor(created(VueProfilDesJoueurs.class))
-
-              .thenExecutes(inputs -> {
-
-                  VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
-                  VueProfilDesJoueurs vueProfilDesJoueurs = inputs.get(created(VueProfilDesJoueurs.class));
-
-                  vueRacine.afficherSousVue(vueProfilDesJoueurs);
-
-              });
-    }
-
+				});
+	}
 }

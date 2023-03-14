@@ -5,7 +5,10 @@ import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import pong.frontal.fragments.FragmentPartieEnCours;
+import pong.frontal.fragments.FragmentRendezVous;
 import pong.frontal.vues.VueFileAttente;
+import pong.frontal.vues.VuePartie;
 import pong.frontal.vues.VueRacine;
 
 public class Initialisation {
@@ -25,8 +28,9 @@ public class Initialisation {
 				
 				installerVueFileAttente(subTasks);
 				
-				
 				afficherFenetre(subTasks);
+				
+				creerVuePartie(subTasks);
 				
 			});
 	}
@@ -83,13 +87,25 @@ public class Initialisation {
         tasks.task(create(VueFileAttente.class))
 
              .waitsFor(viewLoader(VueFileAttente.class))
+             
+             // ajouter
+             .waitsFor(viewLoader(FragmentRendezVous.class))
+
+             // ajouter
+             .waitsFor(viewLoader(FragmentPartieEnCours.class))
 
              .thenExecutesAndReturnsValue(inputs -> {
 
-                 ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+                 ViewLoader<VueFileAttente> viewLoaderFileAttente = inputs.get(viewLoader(VueFileAttente.class));
+                 
+                 ViewLoader<FragmentRendezVous>    viewLoaderRendezVous    = inputs.get(viewLoader(FragmentRendezVous.class));
+                 ViewLoader<FragmentPartieEnCours> viewLoaderPartieEnCours = inputs.get(viewLoader(FragmentPartieEnCours.class));
+                 
+                 VueFileAttente vueFileAttente = viewLoaderFileAttente.createView();
 
-                 VueFileAttente vueFileAttente = viewLoader.createView();
-
+                 vueFileAttente.setViewLoaderRendezVous(viewLoaderRendezVous);
+                 vueFileAttente.setViewLoaderPartieEnCours(viewLoaderPartieEnCours);
+                 
                  return vueFileAttente;
              });
     }
@@ -112,4 +128,19 @@ public class Initialisation {
               });
     }
 
+    private static void creerVuePartie(FrontendTasks tasks) {
+
+        tasks.task(create(VuePartie.class))
+
+             .waitsFor(viewLoader(VuePartie.class))
+
+             .thenExecutesAndReturnsValue(inputs -> {
+
+                 ViewLoader<VuePartie> viewLoader = inputs.get(viewLoader(VuePartie.class));
+
+                 VuePartie vuePartie = viewLoader.createView();
+
+                 return vuePartie;
+             });
+    }
 }

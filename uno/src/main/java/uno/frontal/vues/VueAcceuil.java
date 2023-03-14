@@ -17,7 +17,7 @@ public class VueAcceuil  extends ViewFx {
 	private Button boutonVersProfils;
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialiser() {
 		
 		Ntro.assertNotNull("boutonVersProfils", boutonVersProfils);
 		
