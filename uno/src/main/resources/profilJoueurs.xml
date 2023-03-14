@@ -15,6 +15,7 @@
 	fx:controller="uno.frontal.vues.VueProfilDesJoueurs"
 	styleClass="conteneur" id="vue-profil-des-joueurs">
 
+
 	<Label
 		 text="%textePage"
 		  id="texte">
