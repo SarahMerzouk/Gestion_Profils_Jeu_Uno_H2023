@@ -53,7 +53,7 @@
 	    </VBox>		
 	</HBox> -->
 	
-	<ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true">
+	<ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true">
 		 
         <content>        
 
