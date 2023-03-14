@@ -46,13 +46,6 @@
 		id="texte-presentation-liste">
 	</Label>
 	
-	<!--	
-	<HBox  VBox.vgrow="ALWAYS" styleClass="conteneur-parent">
-			
-		<VBox styleClass="conteneur" fx:id="conteneurProfil" id="conteneur-profil">
-	    </VBox>		
-	</HBox> -->
-	
 	<ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true">
 		 
         <content>        
@@ -63,63 +56,4 @@
         </content>
         
     </ScrollPane>
-	<!--
-	
-	<HBox id="hbox">
-	    
-	    <VBox>
-	    	<ImageView id="logo">     
-		        <image>
-		            <Image url="@logoProfil.jpg"/>
-		        </image>
-		    </ImageView>
-	    </VBox>
-	    
-		<VBox id="vbox-button">
-	    
-			<Label 
-				text="%textePage"
-				id="texte" >
-			</Label>
-		    
-		   
-		    <Button 
-		    	fx:id="boutonAjouter"
-		        text="%button_ajouter"
-		        styleClass="gros-bouton"
-		        id="button">
-		    </Button>
-		    
-		    
-		     <Button 
-		        text="%button_supprimer"
-		        styleClass="gros-bouton"
-		        id="button">
-		    </Button>
-		    
-		    <Button 
-		        text="%button_voirInfos"
-		        styleClass="gros-bouton"
-		        id="button">
-		    </Button>
-		    	    
-	    </VBox>
-	    
-	    <VBox id="vbox-listeJoueurs">
-	    
-		    <Label
-		     text="%textePresentationListe" 
-		     id="texte-presentation-liste">
-		    </Label>
-		    
-		    <Label 
-			    fx:id="labelUnJoueur"
-			    id="label-un-joueur"
-			    text="labelUnJoueur">
-			</Label>
-		</VBox>
-	
-	</HBox>
-	-->
-
 </VBox>
