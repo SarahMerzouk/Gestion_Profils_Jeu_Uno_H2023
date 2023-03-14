@@ -12,48 +12,48 @@
 <?import javafx.scene.control.ScrollPane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="uno.frontal.vues.VueProfilDesJoueurs" 
-    styleClass="conteneur"
-    id="vue-profil-des-joueurs">
-    
-    <Label 
-		text="%textePage"
-		id="texte" >
+	fx:controller="uno.frontal.vues.VueProfilDesJoueurs"
+	styleClass="conteneur" id="vue-profil-des-joueurs">
+
+	<Label text="%textePage" id="texte">
 	</Label>
-	
-	<ResizableAvatar
-        fx:id="logo"
-        VBox.vgrow="ALWAYS"
-        styleClass="logo">
-    </ResizableAvatar>
-    
-	<Button
-		fx:id="boutonRetourVersAcceuil" 
-		text="%button_retour"
-		styleClass="gros-bouton"
-		id="button">
-	</Button>
-		    
+
+	<ResizableAvatar 
+		fx:id="logo"
+		 VBox.vgrow="ALWAYS"
+		  styleClass="logo">
+	</ResizableAvatar>
+
 	<Button 
-		fx:id="boutonAjouter" 
-		text="%button_ajouter"
+		fx:id="boutonRetourVersAcceuil"
+		 text="%button_retour"
+		  styleClass="gros-bouton"
+		   id="button">
+	</Button>
+
+	<Button
+		 fx:id="boutonAjouter" 
+		 text="%button_ajouter"
 		styleClass="gros-bouton" 
 		id="button">
 	</Button>
-	
-	<Label
-		text="%textePresentationListe" 
+
+	<Label 
+		text="%textePresentationListe"
 		id="texte-presentation-liste">
 	</Label>
-	
-	<ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true">
-		 
-        <content>        
 
-            <VBox styleClass="conteneur" fx:id="conteneurProfil" id="conteneur-profil">
-	    	</VBox>
-			
-        </content>
-        
-    </ScrollPane>
+	<ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true">
+
+		<content>
+
+			<VBox
+				styleClass="conteneur"
+				fx:id="conteneurProfil"
+				id="conteneur-profil">
+			</VBox>
+
+		</content>
+
+	</ScrollPane>
 </VBox>

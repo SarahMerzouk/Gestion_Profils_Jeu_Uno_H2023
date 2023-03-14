@@ -22,14 +22,14 @@
                 styleClass="bouton-voirInfos">
             </Button>
             
-             <Pane minHeight="30" minWidth="130"/>   
+            <Pane minHeight="30" minWidth="130"/>   
                 
             <Label
                 fx:id="labelPseudoJoueur"
                 styleClass="label-pseudo-joueur">
             </Label>
             
-             <Pane HBox.hgrow="ALWAYS" minHeight="30" minWidth="50"/>
+            <Pane HBox.hgrow="ALWAYS" minHeight="30" minWidth="50"/>
                
             <Button 
                 fx:id="boutonRetirerProfil" 
