@@ -39,6 +39,12 @@
 	-fx-background-color: rgb(0, 0, 120);
 }
 
+#vue-informations {
+	-fx-border-color: rgb(0, 179, 255);
+	-fx-alignment: center;
+	-fx-background-color: rgb(0, 0, 120);
+}
+
 #button {
 	-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
 		linear-gradient(#020b02, #3a3a3a),

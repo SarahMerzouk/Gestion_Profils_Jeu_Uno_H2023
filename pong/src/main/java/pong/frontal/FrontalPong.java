@@ -5,11 +5,13 @@ import ca.ntro.app.frontend.FrontendFx;
 import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import pong.frontal.donnees.DonneesVuePartie;
 import pong.frontal.evenements.EvtAfficherFileAttente;
 import pong.frontal.evenements.EvtAfficherPartie;
 import pong.frontal.fragments.FragmentPartieEnCours;
 import pong.frontal.fragments.FragmentRendezVous;
 import pong.frontal.taches.AfficherFileAttente;
+import pong.frontal.taches.AfficherPartie;
 import pong.frontal.taches.Initialisation;
 import pong.frontal.taches.Navigation;
 import pong.frontal.vues.VueFileAttente;
@@ -26,6 +28,8 @@ public class FrontalPong implements FrontendFx {
 		AfficherFileAttente.creerTaches(tasks);
 
 		Navigation.creerTaches(tasks);
+		
+		AfficherPartie.creerTaches(tasks);
 
 	}
 
@@ -61,7 +65,9 @@ public class FrontalPong implements FrontendFx {
 		// LES FRAGMENTS
 		registrar.registerFragment(FragmentRendezVous.class, "/fragments/rendez_vous.xml");
 		registrar.registerFragment(FragmentPartieEnCours.class, "/fragments/partie_en_cours.xml");
-
+		
+		// DONNÉES
+		registrar.registerViewData(DonneesVuePartie.class);
 	}
 
 }

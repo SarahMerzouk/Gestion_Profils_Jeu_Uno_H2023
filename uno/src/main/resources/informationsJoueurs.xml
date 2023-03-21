@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
-<?import pong.frontal.controles.CanvasPartie?>
+<?import uno.frontal.controles.CanvasInformations?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="pong.frontal.vues.VuePartie" 
+    fx:controller="uno.frontal.vues.VueInformationsUnJoueur" 
     styleClass="conteneur"
-    id="vue-partie">
-
-    <Pane styleClass="petit-espace-vertical"/>
-
-    <HBox VBox.vgrow="ALWAYS" styleClass="conteneur">
+    id="vue-informations">
+	
+	<Pane styleClass="petit-espace-vertical"/>
+	
+	<HBox VBox.vgrow="ALWAYS" styleClass="conteneur">
 
         <Pane styleClass="petit-espace-horizontal"/>
 
-        <CanvasPartie 
+        <CanvasInformations 
             HBox.hgrow="ALWAYS" 
-            fx:id="canvasPartie" 
-            id="canvas-partie">
-        </CanvasPartie>
+            fx:id="canvasInformations" 
+            id="canvas-informations">
+        </CanvasInformations>
 
         <Pane styleClass="petit-espace-horizontal"/>
 
     </HBox>
 
     <Pane styleClass="petit-espace-vertical"/>
-
-    <Button 
-        fx:id="boutonQuitterPartie" 
-        text="%quitterPartie"
+	
+    <Button
+    	fx:id="boutonQuitterPageInfos" 
+        text="%retourPageProfil"
         styleClass="gros-bouton"
-        id="bouton-quitter-partie">
+        id="button">
     </Button>
-
+    
     <Pane styleClass="petit-espace-vertical"/>
 
 </VBox>

@@ -2,8 +2,10 @@ package uno.frontal.taches;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import uno.frontal.evenements.EvtAfficherAcceuil;
+import uno.frontal.evenements.EvtAfficherInformations;
 import uno.frontal.evenements.EvtAfficherProfil;
 import uno.frontal.vues.VueAcceuil;
+import uno.frontal.vues.VueInformationsUnJoueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
 
@@ -25,6 +27,7 @@ public class Navigation {
 
                  afficherVueProfil(subTasks);
                  afficherVueAcceuil(subTasks);
+                 afficherVueInformationsDuJoueur(subTasks);
                
              });
     }
@@ -58,6 +61,22 @@ public class Navigation {
                   VueProfilDesJoueurs vueProfilDesJoueurs = inputs.get(created(VueProfilDesJoueurs.class));
 
                   vueRacine.afficherSousVue(vueProfilDesJoueurs);
+
+              });
+    }
+    
+    private static void afficherVueInformationsDuJoueur(FrontendTasks tasks) {
+
+        tasks.task("afficherVueInformationsDuJoueur")
+
+              .waitsFor(event(EvtAfficherInformations.class))
+              
+              .thenExecutes(inputs -> {
+
+                  VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
+                  VueInformationsUnJoueur vueInformationsUnJoueur = inputs.get(created(VueInformationsUnJoueur.class));
+
+                  vueRacine.afficherSousVue(vueInformationsUnJoueur);
 
               });
     }

@@ -10,12 +10,13 @@ import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import uno.frontal.fragments.FragmentProfil;
 import uno.frontal.vues.VueAcceuil;
+import uno.frontal.vues.VueInformationsUnJoueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
 
 public class Initialisation {
 
-	// CRÉATION DE TACHES
+	// CRï¿½ATION DE TACHES
 	public static void creerTaches(FrontendTasks tasks) {
 
 		tasks.taskGroup("Initialisation")
@@ -29,6 +30,9 @@ public class Initialisation {
 					
 					creerVueProfilDesJoueurs(subTasks);
 					installerVueProfilDesJoueurs(subTasks);
+					
+					creerVueInformationsDuJoueur(subTasks);
+					installerVueInfosJoueur(subTasks);
 
 					afficherFenetre(subTasks);
 
@@ -45,7 +49,6 @@ public class Initialisation {
 
 					Window window = inputs.get(window());
 
-					// changer fenêtre
 					window.resize(1200, 500);
 					window.show();
 				});
@@ -104,6 +107,22 @@ public class Initialisation {
 					return vueProfilDesJoueurs;
 				});
 	}
+	
+	private static void creerVueInformationsDuJoueur(FrontendTasks tasks) {
+
+		tasks.task(create(VueInformationsUnJoueur.class))
+
+				.waitsFor(viewLoader(VueInformationsUnJoueur.class))
+
+				.thenExecutesAndReturnsValue(inputs -> {
+
+					ViewLoader<VueInformationsUnJoueur> viewLoader = inputs.get(viewLoader(VueInformationsUnJoueur.class));
+
+					VueInformationsUnJoueur vueInformationsUnJoueur = viewLoader.createView();
+
+					return vueInformationsUnJoueur;
+				});
+	}
 
 	private static void installerVueRacine(FrontendTasks tasks) {
 
@@ -137,6 +156,23 @@ public class Initialisation {
 
 					vueRacine.afficherSousVue(vueProfilDesJoueurs);
 
+				});
+	}
+	
+	private static void installerVueInfosJoueur(FrontendTasks tasks) {
+
+		tasks.task("installerVueInfosJoueur")
+
+				.waitsFor(created(VueRacine.class))
+
+				.waitsFor(created(VueInformationsUnJoueur.class))
+
+				.thenExecutes(inputs -> {
+
+					VueInformationsUnJoueur vueInformationsUnJoueur = inputs.get(created(VueInformationsUnJoueur.class));
+					VueRacine vueRacine = inputs.get(created(VueRacine.class));;
+
+					vueRacine.afficherSousVue(vueInformationsUnJoueur);
 				});
 	}
 }
