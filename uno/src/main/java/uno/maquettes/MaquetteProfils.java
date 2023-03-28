@@ -7,17 +7,13 @@ import uno.commun.valeurs.Joueur;
 
 public class MaquetteProfils {
 
-    public static boolean modeTest = true;
-
     private static Joueur usagerCourant = usagerAleatoire();
 
     public static Joueur usagerCourant() {
-    	// changement
         return MaquetteSession.usagerCourant;
     }
 
     public static void prochainUsager() {
-    	// changement
         MaquetteSession.usagerCourant = eviterRepetitionDePrenom(usagerAleatoire());
     }
 
@@ -32,7 +28,6 @@ public class MaquetteProfils {
     }
 
     private static Joueur eviterRepetitionDePrenom(Joueur usagerAleatoire) {
-    	// changement
         while(usagerAleatoire.getPseudo().equals(MaquetteSession.usagerCourant.getPseudo())) {
 
             usagerAleatoire.setPseudo(pseudoAleatoire());
