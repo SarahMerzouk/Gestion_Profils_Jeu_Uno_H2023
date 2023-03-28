@@ -1,6 +1,5 @@
 package uno.maquettes;
 
-import uno.commun.enums.Cadran;
 import uno.commun.valeurs.Joueur;
 
 public class MaquetteSession {
@@ -8,40 +7,6 @@ public class MaquetteSession {
     public static boolean modeTest = true;
 
     static Joueur usagerCourant = MaquetteProfils.usagerAleatoire();
-    private static Cadran cadranCourant = Cadran.DROITE;
-
-    public static Joueur usagerCourant () {
-        return usagerCourant;
-    }
-
-    public static boolean siOnPeutJouerGauche() {
-        return cadranCourant == Cadran.GAUCHE 
-                || cadranCourant == Cadran.LES_DEUX;
-
-    }
-
-    public static boolean siOnPeutJouerDroite() {
-        return cadranCourant == Cadran.DROITE 
-                || cadranCourant == Cadran.LES_DEUX;
-
-    }
-
-    public static void memoriserCadranCourant(String idPremierJoueur, 
-                                              String idDeuxiemeJoueur) {
-
-        if(idPremierJoueur.equals(usagerCourant.getId())) {
-
-            cadranCourant = Cadran.GAUCHE;
-
-        }else if(idDeuxiemeJoueur.equals(usagerCourant.getId())) {
-
-            cadranCourant = Cadran.DROITE;
-
-        }else {
-
-            cadranCourant = Cadran.LES_DEUX;
-        }
-    }
 
     public static void initialiser(String[] args) {
         String id = null;

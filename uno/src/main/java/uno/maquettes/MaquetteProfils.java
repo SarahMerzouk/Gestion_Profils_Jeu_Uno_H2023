@@ -1,4 +1,4 @@
-package uno.maquettes;
+ package uno.maquettes;
 
 import java.util.List;
 
@@ -10,21 +10,6 @@ public class MaquetteProfils {
     public static boolean modeTest = true;
 
     private static Joueur usagerCourant = usagerAleatoire();
-
-//    public static boolean siUsagerLocal(Joueur usager) {
-//        boolean siLocal = false;
-//
-//        if(modeTest) {
-//
-//            siLocal = true;
-//
-//        }else if(usagerCourant.equals(usager)) {
-//
-//            siLocal = true;
-//        }
-//
-//        return siLocal;
-//    }
 
     public static Joueur usagerCourant() {
     	// changement
@@ -98,22 +83,4 @@ public class MaquetteProfils {
 
         return Ntro.random().choice(choixDeNoms);
     }
-//
-//    public static void initialiser(String[] args) {
-//        String pseudo = null;
-//
-//        if(args.length > 0) {
-//
-//            pseudo = args[0];
-//            modeTest = false;
-//
-//        }else {
-//
-//            pseudo = pseudoAleatoire();
-//
-//        }
-//
-//        usagerCourant = new Joueur(idAleatoire(),nomAleatoire(),pseudo);
-//    }
-
 }
