@@ -10,7 +10,7 @@ import uno.commun.messages.MsgAjouterProfil;
 import uno.commun.valeurs.Joueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
 
-public class ModeleProfil implements Model, WatchJson, WriteObjectGraph {
+public class ModeleProfil implements Model, WriteObjectGraph {
 
 	private List<Joueur> listeDesJoueurs = new ArrayList<>();
 

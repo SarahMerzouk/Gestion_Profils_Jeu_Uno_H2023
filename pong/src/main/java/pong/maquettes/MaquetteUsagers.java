@@ -3,39 +3,20 @@ package pong.maquettes;
 import java.util.List;
 
 import ca.ntro.core.initialization.Ntro;
-import pong.commun.valeurs.Usager;
+import pong.commun.valeurs.Joueur;
 
 public class MaquetteUsagers {
 
-    public static boolean modeTest = true;
-
-    private static Usager usagerCourant = usagerAleatoire();
-
-    public static boolean siUsagerLocal(Usager usager) {
-        boolean siLocal = false;
-
-        if(modeTest) {
-
-            siLocal = true;
-
-        }else if(usagerCourant.equals(usager)) {
-
-            siLocal = true;
-        }
-
-        return siLocal;
-    }
-
-    public static Usager usagerCourant() {
-        return usagerCourant;
-    }
-
     public static void prochainUsager() {
-        usagerCourant = eviterRepetitionDePrenom(usagerAleatoire());
+        MaquetteSession.usagerCourant = eviterRepetitionDePrenom(usagerAleatoire());
     }
 
-    private static Usager usagerAleatoire() {
-        Usager usager = new Usager();
+    public static Joueur usagerCourant () {
+        return MaquetteSession.usagerCourant;
+    }
+
+    static Joueur usagerAleatoire() {
+        Joueur usager = new Joueur();
 
         usager.setId(idAleatoire());
         usager.setPrenom(prenomAleatoire());
@@ -44,9 +25,9 @@ public class MaquetteUsagers {
         return usager;
     }
 
-    private static Usager eviterRepetitionDePrenom(Usager usagerAleatoire) {
+    private static Joueur eviterRepetitionDePrenom(Joueur usagerAleatoire) {
 
-        while(usagerAleatoire.getPrenom().equals(usagerCourant.getPrenom())) {
+        while(usagerAleatoire.getPrenom().equals(MaquetteSession.usagerCourant.getPrenom())) {
 
             usagerAleatoire.setPrenom(prenomAleatoire());
         }
@@ -54,12 +35,11 @@ public class MaquetteUsagers {
         return usagerAleatoire;
     }
 
-
-    private static String idAleatoire() {
+    static String idAleatoire() {
         return Ntro.random().nextId(4);
     }
 
-    private static String prenomAleatoire() {
+    static String prenomAleatoire() {
 
         List<String> choixDeNoms = List.of("Alice", 
                                            "Bob", 
@@ -78,7 +58,7 @@ public class MaquetteUsagers {
         return Ntro.random().choice(choixDeNoms);
     }
 
-    private static String nomAleatoire() {
+    static String nomAleatoire() {
 
         List<String> choixDeNoms = List.of("Abdenouri", 
                                            "Ahmadi", 
@@ -96,24 +76,4 @@ public class MaquetteUsagers {
 
         return Ntro.random().choice(choixDeNoms);
     }
-
-    public static void initialiser(String[] args) {
-        String prenom = null;
-
-        if(args.length > 0) {
-
-            prenom = args[0];
-            modeTest = false;
-
-        }else {
-
-            prenom = prenomAleatoire();
-
-        }
-
-        usagerCourant = new Usager(idAleatoire(), 
-                                   prenom, 
-                                   nomAleatoire());
-    }
-
 }

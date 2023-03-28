@@ -45,6 +45,25 @@ def localConfig = {
    jvmArgs('-Dsun.java2d.opengl=true')
 }
 
+def clientConfig = {
+   configure commonConfig
+   mainClass = "pong.ClientPong"
+   jvmArgs('-Dsun.java2d.opengl=true')
+}
+
+def serverConfig = {
+   configure commonConfig
+   mainClass = "pong.ServeurPong"
+}
+
+task(serveur, dependsOn: 'classes', type: JavaExec) {
+   configure serverConfig
+}
+
+task(client, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+}
+
 task(local, dependsOn: 'classes', type: JavaExec) {
    configure localConfig
 }
@@ -57,4 +76,19 @@ task(localFr, dependsOn: 'classes', type: JavaExec) {
 task(localEn, dependsOn: 'classes', type: JavaExec) {
    configure localConfig
    jvmArgs('-Duser.language=en')
+}
+
+task(alice, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+   args("aaaa", "Alice","Yi")
+}
+
+task(bob, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+   args("bbbb", "Bob","Castillo")
+}
+
+task(charlie, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+   args("cccc", "Charlie","Ahmadi")
 }

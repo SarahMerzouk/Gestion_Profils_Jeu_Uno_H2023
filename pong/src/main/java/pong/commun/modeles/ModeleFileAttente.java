@@ -8,10 +8,10 @@ import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
 import pong.commun.messages.MsgAjouterRendezVous;
 import pong.commun.valeurs.RendezVous;
-import pong.commun.valeurs.Usager;
+import pong.commun.valeurs.Joueur;
 import pong.frontal.vues.VueFileAttente;
 
-public class ModeleFileAttente implements Model, WatchJson, WriteObjectGraph {
+public class ModeleFileAttente implements Model, WriteObjectGraph {
 
 	private long prochainIdRendezVous = 1;
 	private List<RendezVous> lesRendezVous = new ArrayList<>();
@@ -67,10 +67,10 @@ public class ModeleFileAttente implements Model, WatchJson, WriteObjectGraph {
 
 	public void sInscrire(MsgAjouterRendezVous msg) {
 
-		Usager premierJoueur = msg.getPremierJoueur();
+		Joueur premierJoueur = msg.getPremierJoueur();
 	}
 
-	public void inscrire(Usager premierJoueur) {
+	public void inscrire(Joueur premierJoueur) {
 
 		String idRendezVous = genererIdRendezVous();
 

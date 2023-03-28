@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
     fx:controller="pong.frontal.vues.VueFileAttente" 
@@ -27,10 +28,15 @@
     <HBox styleClass="conteneur,conteneur-parent">
     
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-
-        <VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurRendezVous" id="conteneur-rendez-vous">
-        </VBox>
-
+		
+		<ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true">
+			<content>
+        		<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurRendezVous" id="conteneur-rendez-vous">
+        		</VBox>
+        	</content>
+		
+		</ScrollPane>
+		
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
     	
     </HBox>

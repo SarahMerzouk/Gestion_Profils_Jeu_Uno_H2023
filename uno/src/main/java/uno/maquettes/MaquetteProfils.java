@@ -11,30 +11,32 @@ public class MaquetteProfils {
 
     private static Joueur usagerCourant = usagerAleatoire();
 
-    public static boolean siUsagerLocal(Joueur usager) {
-        boolean siLocal = false;
-
-        if(modeTest) {
-
-            siLocal = true;
-
-        }else if(usagerCourant.equals(usager)) {
-
-            siLocal = true;
-        }
-
-        return siLocal;
-    }
+//    public static boolean siUsagerLocal(Joueur usager) {
+//        boolean siLocal = false;
+//
+//        if(modeTest) {
+//
+//            siLocal = true;
+//
+//        }else if(usagerCourant.equals(usager)) {
+//
+//            siLocal = true;
+//        }
+//
+//        return siLocal;
+//    }
 
     public static Joueur usagerCourant() {
-        return usagerCourant;
+    	// changement
+        return MaquetteSession.usagerCourant;
     }
 
     public static void prochainUsager() {
-        usagerCourant = eviterRepetitionDePrenom(usagerAleatoire());
+    	// changement
+        MaquetteSession.usagerCourant = eviterRepetitionDePrenom(usagerAleatoire());
     }
 
-    private static Joueur usagerAleatoire() {
+    public static Joueur usagerAleatoire() {
     	Joueur usager = new Joueur();
 
         usager.setId(idAleatoire());
@@ -45,8 +47,8 @@ public class MaquetteProfils {
     }
 
     private static Joueur eviterRepetitionDePrenom(Joueur usagerAleatoire) {
-
-        while(usagerAleatoire.getPseudo().equals(usagerCourant.getPseudo())) {
+    	// changement
+        while(usagerAleatoire.getPseudo().equals(MaquetteSession.usagerCourant.getPseudo())) {
 
             usagerAleatoire.setPseudo(pseudoAleatoire());
         }
@@ -55,11 +57,11 @@ public class MaquetteProfils {
     }
 
 
-    private static String idAleatoire() {
+    static String idAleatoire() {
         return Ntro.random().nextId(4);
     }
 
-    private static String pseudoAleatoire() {
+    static String pseudoAleatoire() {
 
         List<String> choixDePseudos = List.of("Alice23", 
                                            "Bob#2i", 
@@ -78,7 +80,7 @@ public class MaquetteProfils {
         return Ntro.random().choice(choixDePseudos);
     }
 
-    private static String nomAleatoire() {
+    static String nomAleatoire() {
 
         List<String> choixDeNoms = List.of("Abdenouri", 
                                            "Ahmadi", 
@@ -96,22 +98,22 @@ public class MaquetteProfils {
 
         return Ntro.random().choice(choixDeNoms);
     }
-
-    public static void initialiser(String[] args) {
-        String pseudo = null;
-
-        if(args.length > 0) {
-
-            pseudo = args[0];
-            modeTest = false;
-
-        }else {
-
-            pseudo = pseudoAleatoire();
-
-        }
-
-        usagerCourant = new Joueur(idAleatoire(),nomAleatoire(),pseudo);
-    }
+//
+//    public static void initialiser(String[] args) {
+//        String pseudo = null;
+//
+//        if(args.length > 0) {
+//
+//            pseudo = args[0];
+//            modeTest = false;
+//
+//        }else {
+//
+//            pseudo = pseudoAleatoire();
+//
+//        }
+//
+//        usagerCourant = new Joueur(idAleatoire(),nomAleatoire(),pseudo);
+//    }
 
 }

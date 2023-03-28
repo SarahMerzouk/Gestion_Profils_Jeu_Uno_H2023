@@ -7,7 +7,7 @@ import pong.frontal.fragments.FragmentRendezVous;
 public class PartieEnCours extends RendezVous {
 
 	private String idPartie;
-	private Usager deuxiemeJoueur;
+	private Joueur deuxiemeJoueur;
 
 	public PartieEnCours() {
 		super();
@@ -26,11 +26,11 @@ public class PartieEnCours extends RendezVous {
 		return getPremierJoueur().getPrenom() + " Vs " + deuxiemeJoueur.getPrenom();
 	}
 
-	public Usager getDeuxiemeJoueur() {
+	public Joueur getDeuxiemeJoueur() {
 		return deuxiemeJoueur;
 	}
 
-	public void setDeuxiemeJoueur(Usager deuxiemeJoueur) {
+	public void setDeuxiemeJoueur(Joueur deuxiemeJoueur) {
 		this.deuxiemeJoueur = deuxiemeJoueur;
 	}
 

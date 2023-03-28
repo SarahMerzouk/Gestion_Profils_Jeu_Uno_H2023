@@ -8,13 +8,13 @@ import pong.frontal.fragments.FragmentRendezVous;
 public class RendezVous implements ModelValue {
 
 	private String idRendezVous;
-	private Usager premierJoueur;
+	private Joueur premierJoueur;
 
 	public RendezVous() {
 
 	}
 
-	public RendezVous(String idRendezVous, Usager premierJoueur) {
+	public RendezVous(String idRendezVous, Joueur premierJoueur) {
 
 		setIdRendezVous(idRendezVous);
 		setPremierJoueur(premierJoueur);
@@ -28,11 +28,11 @@ public class RendezVous implements ModelValue {
 		this.idRendezVous = idRendezVous;
 	}
 
-	public Usager getPremierJoueur() {
+	public Joueur getPremierJoueur() {
 		return premierJoueur;
 	}
 
-	public void setPremierJoueur(Usager premierJoueur) {
+	public void setPremierJoueur(Joueur premierJoueur) {
 		this.premierJoueur = premierJoueur;
 	}
 

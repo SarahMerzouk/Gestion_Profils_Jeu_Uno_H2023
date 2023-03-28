@@ -2,16 +2,16 @@ package pong.commun.valeurs;
 
 import ca.ntro.app.models.ModelValue;
 
-public class Usager implements ModelValue {
+public class Joueur implements ModelValue {
 
 	private String id;
 	private String prenom;
 	private String nom;
 	
-	public Usager() {
+	public Joueur() {
 		
 	}
-	public Usager(String pId, String pPrenom, String Pnom) {
+	public Joueur(String pId, String pPrenom, String Pnom) {
 		id = pId;
 		prenom = pPrenom;
 		nom = Pnom;

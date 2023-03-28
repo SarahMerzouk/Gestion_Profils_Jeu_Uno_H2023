@@ -7,7 +7,7 @@ import ca.ntro.app.models.WriteObjectGraph;
 import ca.ntro.app.tasks.backend.BackendTasks;
 import pong.commun.messages.MsgAjouterRendezVous;
 import pong.commun.modeles.ModeleFileAttente;
-import pong.commun.valeurs.Usager;
+import pong.commun.valeurs.Joueur;
 
 public class ModifierFileAttente{
 

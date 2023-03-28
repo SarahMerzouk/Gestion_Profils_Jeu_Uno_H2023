@@ -2,21 +2,21 @@ package pong.commun.messages;
 
 import ca.ntro.app.messages.MessageNtro;
 import pong.commun.modeles.ModeleFileAttente;
-import pong.commun.valeurs.Usager;
+import pong.commun.valeurs.Joueur;
 
 public class MsgAjouterRendezVous extends MessageNtro {
 	
-	private Usager premierJoueur;
+	private Joueur premierJoueur;
 	
 	public MsgAjouterRendezVous() {
 		
 	}
 
-	public Usager getPremierJoueur() {
+	public Joueur getPremierJoueur() {
 		return premierJoueur;
 	}
 
-	public void setPremierJoueur(Usager premierJoueur) {
+	public void setPremierJoueur(Joueur premierJoueur) {
 		this.premierJoueur = premierJoueur;
 	}
 	
