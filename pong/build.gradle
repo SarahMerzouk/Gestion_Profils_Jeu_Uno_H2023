@@ -78,17 +78,17 @@ task(localEn, dependsOn: 'classes', type: JavaExec) {
    jvmArgs('-Duser.language=en')
 }
 
-task(alice, dependsOn: 'classes', type: JavaExec) {
-   configure clientConfig
+task(aliceLocal, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
    args("aaaa", "Alice","Yi")
 }
 
-task(bob, dependsOn: 'classes', type: JavaExec) {
-   configure clientConfig
+task(bobLocal, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
    args("bbbb", "Bob","Castillo")
 }
 
-task(charlie, dependsOn: 'classes', type: JavaExec) {
-   configure clientConfig
+task(charlieLocal, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
    args("cccc", "Charlie","Ahmadi")
 }

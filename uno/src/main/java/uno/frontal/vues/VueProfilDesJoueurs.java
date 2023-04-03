@@ -22,6 +22,7 @@ import uno.frontal.evenements.EvtAfficherInformations;
 import uno.frontal.evenements.EvtAfficherProfil;
 import uno.frontal.fragments.FragmentProfil;
 import uno.maquettes.MaquetteProfils;
+import uno.maquettes.MaquetteSession;
 
 public class VueProfilDesJoueurs extends ViewFx {
 
@@ -74,7 +75,7 @@ public class VueProfilDesJoueurs extends ViewFx {
 	}
 
 	private void installerMsgAjouterProfil() {
-		MsgAjouterProfil msgAjouterProfil = NtroApp.newMessage(MsgAjouterProfil.class);
+		MsgAjouterProfil msgAjouterProfil = NtroApp.newMessage(MsgAjouterProfil.class, MaquetteSession.usagerCourant.getId());
 
 		boutonAjouter.setOnAction(evtFx -> {
 

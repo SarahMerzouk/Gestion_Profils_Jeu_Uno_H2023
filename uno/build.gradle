@@ -92,3 +92,18 @@ task(charlie, dependsOn: 'classes', type: JavaExec) {
    configure clientConfig
    args("cccc", "00_Charlie_00","Charlie")
 }
+
+task(aliceLocal, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
+   args("aaaa", "Alice2","Alice")
+}
+
+task(bobLocal, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
+   args("bbbb", "Bob_23","Bob")
+}
+
+task(charlieLocal, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
+   args("cccc", "00_Charlie_00","Charlie")
+}

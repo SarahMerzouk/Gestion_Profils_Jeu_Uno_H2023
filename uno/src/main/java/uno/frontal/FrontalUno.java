@@ -18,6 +18,7 @@ import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueInformationsUnJoueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
+import uno.maquettes.MaquetteSession;
 
 public class FrontalUno implements FrontendFx{
 
@@ -26,7 +27,8 @@ public class FrontalUno implements FrontendFx{
 		
 		Initialisation.creerTaches(tasks);
 		
-		AfficherProfil.creerTaches(tasks);
+		// AfficherProfil.creerTaches(tasks);
+		AfficherProfil.creerTaches(tasks, MaquetteSession.usagerCourant.getId());
 		
 		Navigation.creerTaches(tasks);
 		

@@ -8,10 +8,13 @@ import ca.ntro.app.models.ModelRegistrar;
 import uno.commun.Declarations;
 import uno.dorsal.DorsalUno;
 import uno.frontal.FrontalUno;
+import uno.maquettes.MaquetteSession;
 
 public class UnoCardsLocal implements NtroClientFx {
 	
 	public static void main(String[] args) {
+		
+		MaquetteSession.initialiser(args);
 		NtroClientFx.launch(args);
 	}
 	

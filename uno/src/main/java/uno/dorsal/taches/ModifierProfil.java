@@ -8,29 +8,31 @@ import uno.commun.modeles.ModeleProfil;
 
 public class ModifierProfil {
 
-	public static void creerTaches(BackendTasks tasks) {
+	public static void creerTaches(BackendTasks tasks, String idUsager) {
 
-		tasks.taskGroup("ModifierProfil")
+		tasks.taskGroup("ModifierProfil" + "/" + idUsager)
 
-				.waitsFor(model(ModeleProfil.class))
+				.waitsFor(model(ModeleProfil.class, idUsager))
 
 				.andContains(subTasks -> {
 					
-					ajouterProfil(subTasks);
+					ajouterProfil(subTasks, idUsager);
 				});
 	}
 
-	private static void ajouterProfil(BackendTasks subTasks) {
-		subTasks.task("ajouterProfil")
+	private static void ajouterProfil(BackendTasks subTasks, String idUsager) {
+		subTasks.task("ajouterProfil" + "/" + idUsager)
 
-				.waitsFor(message(MsgAjouterProfil.class))
+				.waitsFor(message(MsgAjouterProfil.class, idUsager))
 
 				.thenExecutes(inputs -> {
 
-					MsgAjouterProfil msgAjouterProfil = inputs.get(message(MsgAjouterProfil.class));
-					ModeleProfil profil = inputs.get(model(ModeleProfil.class));
+					MsgAjouterProfil msgAjouterProfil = inputs.get(message(MsgAjouterProfil.class, idUsager));
+					ModeleProfil profil = inputs.get(model(ModeleProfil.class, idUsager));
 					
 					msgAjouterProfil.ajouterA(profil);
 				});
 	}
+	
+	// créer une méthode modifierInfosProfil comme le tutoriel ?
 }

@@ -6,7 +6,7 @@ public class MaquetteSession {
 
     public static boolean modeTest = true;
 
-    static Joueur usagerCourant = MaquetteProfils.usagerAleatoire();
+    public static Joueur usagerCourant = MaquetteProfils.usagerAleatoire();
 
     public static void initialiser(String[] args) {
         String id = null;
