@@ -19,7 +19,6 @@ public class DonneesVueInformations implements ViewData {
 		calculerFpsSiNecessaire();
 
 		vueInformationsUnJoueur.viderCanvas();
-//		vueInformationsUnJoueur.afficherImagesParSeconde(fpsCourant);
 		vueInformationsUnJoueur.afficherUno2d(mondeUno2d);
 
 		imagesAfficheesDepuisDernierCalculFps++;
@@ -43,8 +42,8 @@ public class DonneesVueInformations implements ViewData {
 		double fps = imagesAfficheesDepuisDernierCalculFps / secondesEcoulees;
 		fpsCourant = String.valueOf(Math.round(fps));
 	}
-	
-	 public void reagirTempsQuiPasse(double elapsedTime) {
-	        mondeUno2d.onTimePasses(elapsedTime);
-	    }
+
+	public void reagirTempsQuiPasse(double elapsedTime) {
+		mondeUno2d.onTimePasses(elapsedTime);
+	}
 }

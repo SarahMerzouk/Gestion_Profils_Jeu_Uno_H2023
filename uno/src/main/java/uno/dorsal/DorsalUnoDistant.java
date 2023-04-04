@@ -5,10 +5,10 @@ import ca.ntro.app.backend.RemoteBackendNtro;
 import uno.commun.Declarations;
 
 public class DorsalUnoDistant extends RemoteBackendNtro {
-	
+
 	@Override
-    public void registerServer(ServerRegistrar registrar) {
-        Declarations.declarerServeur(registrar);
-    }
+	public void registerServer(ServerRegistrar registrar) {
+		Declarations.declarerServeur(registrar);
+	}
 
 }

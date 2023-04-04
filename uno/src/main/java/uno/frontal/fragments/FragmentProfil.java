@@ -12,32 +12,32 @@ import uno.frontal.evenements.EvtAfficherInformations;
 import uno.frontal.evenements.EvtAfficherProfil;
 
 public class FragmentProfil extends ViewFragmentFx {
-	
+
 	@FXML
 	private Button boutonVoirInfos;
-	
-	//@FXMLs
-    // private Button boutonSupprimerJoueur;
-	
+
+	// @FXMLs
+	// private Button boutonSupprimerJoueur;
+
 	@FXML
 	private Label labelPseudoJoueur;
 
 	@Override
 	public void initialiser() {
 		Ntro.assertNotNull("boutonVoirInfos", boutonVoirInfos);
-		
-		//Ntro.assertNotNull("boutonSupprimerJoueur",boutonSupprimerJoueur);
-		
-		Ntro.assertNotNull("labelPseudoJoueur",labelPseudoJoueur);
-		
+
+		// Ntro.assertNotNull("boutonSupprimerJoueur",boutonSupprimerJoueur);
+
+		Ntro.assertNotNull("labelPseudoJoueur", labelPseudoJoueur);
+
 		installerEvtAfficherInformations();
-		
+
 	}
-	
+
 	public void afficherPseudoDuJoueur(String pseudoJoueur) {
-        labelPseudoJoueur.setText(pseudoJoueur);
-    }
-	
+		labelPseudoJoueur.setText(pseudoJoueur);
+	}
+
 	private void installerEvtAfficherInformations() {
 
 		EvtAfficherInformations evtNtro = NtroApp.newEvent(EvtAfficherInformations.class);
@@ -48,7 +48,7 @@ public class FragmentProfil extends ViewFragmentFx {
 
 		});
 	}
-	
+
 	public void afficherSousVue(ViewFx sousVue) {
 
 		Pane racineSousVue = sousVue.rootNode();

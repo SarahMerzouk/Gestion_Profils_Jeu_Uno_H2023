@@ -39,7 +39,7 @@ public class MondeUno2d extends World2dFx {
 		gc.setLineWidth(1);
 
 		gc.strokeRect(0, 0, getWidth(), getHeight());
-		
+
 		gc.restore();
 	}
 

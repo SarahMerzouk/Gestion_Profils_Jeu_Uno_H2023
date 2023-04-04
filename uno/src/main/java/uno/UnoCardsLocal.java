@@ -11,13 +11,13 @@ import uno.frontal.FrontalUno;
 import uno.maquettes.MaquetteSession;
 
 public class UnoCardsLocal implements NtroClientFx {
-	
+
 	public static void main(String[] args) {
-		
+
 		MaquetteSession.initialiser(args);
 		NtroClientFx.launch(args);
 	}
-	
+
 	@Override
 	public void registerBackend(BackendRegistrar registrar) {
 
@@ -26,7 +26,7 @@ public class UnoCardsLocal implements NtroClientFx {
 
 	@Override
 	public void registerFrontend(FrontendRegistrarFx registrar) {
-		
+
 		registrar.registerFrontend(new FrontalUno());
 	}
 
@@ -38,9 +38,9 @@ public class UnoCardsLocal implements NtroClientFx {
 
 	@Override
 	public void registerModels(ModelRegistrar registrar) {
-		
+
 		Declarations.declarerModeles(registrar);
-		
+
 	}
 
 }

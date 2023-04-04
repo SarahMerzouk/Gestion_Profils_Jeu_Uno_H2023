@@ -50,7 +50,7 @@ public class AfficherInformations {
 					DonneesVueInformations donneesVueInformations = inputs.get(created(DonneesVueInformations.class));
 					VueInformationsUnJoueur vueInformationsUnJoueur = inputs
 							.get(created(VueInformationsUnJoueur.class));
-					
+
 					donneesVueInformations.reagirTempsQuiPasse(tick.elapsedTime());
 					donneesVueInformations.afficherSur(vueInformationsUnJoueur);
 				});

@@ -29,11 +29,11 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 	public void afficherSur(VueProfilDesJoueurs vueProfilDesJoueurs) {
 
 		vueProfilDesJoueurs.viderListeProfils();
-        
-        for(Joueur joueur : listeDesJoueurs) {
-            
-        	vueProfilDesJoueurs.ajouterProfil(joueur);
-        }
+
+		for (Joueur joueur : listeDesJoueurs) {
+
+			vueProfilDesJoueurs.ajouterProfil(joueur);
+		}
 	}
 
 	@Override
@@ -57,11 +57,11 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 	}
 
 	public void ajouterProfil(MsgAjouterProfil msg) {
-		
+
 		Joueur joueur = msg.getJoueur();
 	}
 
-	public void ajouterProfil(Joueur player) {		
+	public void ajouterProfil(Joueur player) {
 		listeDesJoueurs.add(player);
 	}
 

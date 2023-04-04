@@ -15,7 +15,7 @@ public class ModifierProfil {
 				.waitsFor(model(ModeleProfil.class, idUsager))
 
 				.andContains(subTasks -> {
-					
+
 					ajouterProfil(subTasks, idUsager);
 				});
 	}
@@ -29,10 +29,9 @@ public class ModifierProfil {
 
 					MsgAjouterProfil msgAjouterProfil = inputs.get(message(MsgAjouterProfil.class, idUsager));
 					ModeleProfil profil = inputs.get(model(ModeleProfil.class, idUsager));
-					
+
 					msgAjouterProfil.ajouterA(profil);
 				});
 	}
-	
-	// créer une méthode modifierInfosProfil comme le tutoriel ?
+
 }

@@ -25,12 +25,12 @@ public class Initialisation {
 
 					creerVueRacine(subTasks);
 					installerVueRacine(subTasks);
-					
+
 					creerVueAcceuil(subTasks);
-					
+
 					creerVueProfilDesJoueurs(subTasks);
 					installerVueProfilDesJoueurs(subTasks);
-					
+
 					creerVueInformationsDuJoueur(subTasks);
 					installerVueInfosJoueur(subTasks);
 
@@ -91,23 +91,24 @@ public class Initialisation {
 		tasks.task(create(VueProfilDesJoueurs.class))
 
 				.waitsFor(viewLoader(VueProfilDesJoueurs.class))
-				
+
 				.waitsFor(viewLoader(FragmentProfil.class))
 
 				.thenExecutesAndReturnsValue(inputs -> {
 
-					ViewLoader<VueProfilDesJoueurs> viewLoaderProfilDesJoueurs = inputs.get(viewLoader(VueProfilDesJoueurs.class));
-					
-					ViewLoader<FragmentProfil>    viewLoaderProfil    = inputs.get(viewLoader(FragmentProfil.class));
+					ViewLoader<VueProfilDesJoueurs> viewLoaderProfilDesJoueurs = inputs
+							.get(viewLoader(VueProfilDesJoueurs.class));
+
+					ViewLoader<FragmentProfil> viewLoaderProfil = inputs.get(viewLoader(FragmentProfil.class));
 
 					VueProfilDesJoueurs vueProfilDesJoueurs = viewLoaderProfilDesJoueurs.createView();
-					
+
 					vueProfilDesJoueurs.setViewLoaderProfil(viewLoaderProfil);
-					
+
 					return vueProfilDesJoueurs;
 				});
 	}
-	
+
 	private static void creerVueInformationsDuJoueur(FrontendTasks tasks) {
 
 		tasks.task(create(VueInformationsUnJoueur.class))
@@ -116,7 +117,8 @@ public class Initialisation {
 
 				.thenExecutesAndReturnsValue(inputs -> {
 
-					ViewLoader<VueInformationsUnJoueur> viewLoader = inputs.get(viewLoader(VueInformationsUnJoueur.class));
+					ViewLoader<VueInformationsUnJoueur> viewLoader = inputs
+							.get(viewLoader(VueInformationsUnJoueur.class));
 
 					VueInformationsUnJoueur vueInformationsUnJoueur = viewLoader.createView();
 
@@ -158,7 +160,7 @@ public class Initialisation {
 
 				});
 	}
-	
+
 	private static void installerVueInfosJoueur(FrontendTasks tasks) {
 
 		tasks.task("installerVueInfosJoueur")
@@ -169,8 +171,10 @@ public class Initialisation {
 
 				.thenExecutes(inputs -> {
 
-					VueInformationsUnJoueur vueInformationsUnJoueur = inputs.get(created(VueInformationsUnJoueur.class));
-					VueRacine vueRacine = inputs.get(created(VueRacine.class));;
+					VueInformationsUnJoueur vueInformationsUnJoueur = inputs
+							.get(created(VueInformationsUnJoueur.class));
+					VueRacine vueRacine = inputs.get(created(VueRacine.class));
+					;
 
 					vueRacine.afficherSousVue(vueInformationsUnJoueur);
 				});

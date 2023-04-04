@@ -8,12 +8,7 @@ import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueInformationsUnJoueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
-
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
-
-import ca.ntro.app.frontend.ViewLoader;
-import ca.ntro.app.services.Window;
-
 
 public class Navigation {
 

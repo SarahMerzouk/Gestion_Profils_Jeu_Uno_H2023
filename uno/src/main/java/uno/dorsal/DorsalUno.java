@@ -5,20 +5,19 @@ import ca.ntro.app.tasks.backend.BackendTasks;
 import uno.dorsal.taches.ModifierProfil;
 import uno.maquettes.MaquetteUsagers;
 
-public class DorsalUno extends  LocalBackendNtro {
+public class DorsalUno extends LocalBackendNtro {
 
 	@Override
 	public void createTasks(BackendTasks tasks) {
-		// ModifierProfil.creerTaches(tasks);
-		
-		for(String idUsager : MaquetteUsagers.usagerEnCours()) {
-            ModifierProfil.creerTaches(tasks, idUsager);
-        }
-		
+
+		for (String idUsager : MaquetteUsagers.usagerEnCours()) {
+			ModifierProfil.creerTaches(tasks, idUsager);
+		}
+
 	}
 
 	public void execute() {
-		
+
 	}
 
 }

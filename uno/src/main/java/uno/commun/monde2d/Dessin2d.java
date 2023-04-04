@@ -6,9 +6,9 @@ import javafx.scene.paint.Color;
 import ca.ntro.core.initialization.Ntro;
 
 public class Dessin2d extends ObjetUno2d {
-	
+
 	private static final double EPSILON = 1;
-	
+
 	public Dessin2d() {
 		super();
 	}
@@ -19,20 +19,20 @@ public class Dessin2d extends ObjetUno2d {
 		setHeight(10);
 		setTopLeftX(100);
 		setTopLeftY(100);
-		
+
 		setSpeedX(50 + Ntro.random().nextInt(100));
-        setSpeedY(50 + Ntro.random().nextInt(100));
+		setSpeedY(50 + Ntro.random().nextInt(100));
 	}
 
 	@Override
 	public void drawOn(ResizableWorld2dCanvasFx canvas) {
 
 		canvas.drawOnWorld(gc -> {
-			
-			gc.setStroke(Color.WHITE);		
+
+			gc.setStroke(Color.WHITE);
 			gc.strokeText("INFORMATIONS DU JOUEUR", getTopLeftX(), getTopLeftY());
 			gc.setLineWidth(5);
-			
+
 		});
 
 	}
@@ -46,74 +46,62 @@ public class Dessin2d extends ObjetUno2d {
 	public String id() {
 		return "dessin1";
 	}
-	
-	 @Override
-	    public void onTimePasses(double secondsElapsed) {
-	        super.onTimePasses(secondsElapsed);
 
-	        if(dessinFrappeMurGauche()) {
+	@Override
+	public void onTimePasses(double secondsElapsed) {
+		super.onTimePasses(secondsElapsed);
 
-	            dessinRebondiSurMurGauche();
+		if (dessinFrappeMurGauche()) {
 
-	        }else if(dessinFrappeMurDroit()) {
+			dessinRebondiSurMurGauche();
 
-	            dessinRebondiSurMurDroit();
+		} else if (dessinFrappeMurDroit()) {
 
-	        }else if(dessinFrappePlafond()) {
+			dessinRebondiSurMurDroit();
 
-	            dessinRebondiSurPlafond();
+		} else if (dessinFrappePlafond()) {
 
-	        }else if(dessinFrappePlancher()) {
+			dessinRebondiSurPlafond();
 
-	            dessinRebondiSurPlancher();
-	        }
-	    }
-	 
-	 private boolean dessinFrappePlancher() {
-	        return collidesWith(0,
-	                            getWorld2d().getHeight(),
-	                            getWorld2d().getWidth(),
-	                            1);
-	    }
+		} else if (dessinFrappePlancher()) {
 
-	    private boolean dessinFrappePlafond() {
-	        return collidesWith(0,
-	                            0,
-	                            getWorld2d().getWidth(),
-	                            1);
-	    }
+			dessinRebondiSurPlancher();
+		}
+	}
 
-	    private boolean dessinFrappeMurDroit() {
-	        return collidesWith(getWorld2d().getWidth(),
-	                            0,
-	                            1,
-	                            getWorld2d().getHeight());
-	    }
+	private boolean dessinFrappePlancher() {
+		return collidesWith(0, getWorld2d().getHeight(), getWorld2d().getWidth(), 1);
+	}
 
-	    private boolean dessinFrappeMurGauche() {
-	        return collidesWith(0,
-	                            0,
-	                            1,
-	                            getWorld2d().getHeight());
-	    }
+	private boolean dessinFrappePlafond() {
+		return collidesWith(0, 0, getWorld2d().getWidth(), 1);
+	}
 
-	    private void dessinRebondiSurPlancher() {
-	        setTopLeftY(getWorld2d().getHeight() - this.getHeight() - EPSILON);
-	        setSpeedY(-getSpeedY());
-	    }
+	private boolean dessinFrappeMurDroit() {
+		return collidesWith(getWorld2d().getWidth(), 0, 1, getWorld2d().getHeight());
+	}
 
-	    private void dessinRebondiSurPlafond() {
-	        setTopLeftY(0 + EPSILON);
-	        setSpeedY(-getSpeedY());
-	    }
+	private boolean dessinFrappeMurGauche() {
+		return collidesWith(0, 0, 1, getWorld2d().getHeight());
+	}
 
-	    private void dessinRebondiSurMurDroit() {
-	        setTopLeftX(getWorld2d().getWidth() - this.getWidth() - EPSILON);
-	        setSpeedX(-getSpeedX());
-	    }
+	private void dessinRebondiSurPlancher() {
+		setTopLeftY(getWorld2d().getHeight() - this.getHeight() - EPSILON);
+		setSpeedY(-getSpeedY());
+	}
 
-	    private void dessinRebondiSurMurGauche() {
-	        setTopLeftX(0 + EPSILON);
-	        setSpeedX(-getSpeedX());
-	    }
+	private void dessinRebondiSurPlafond() {
+		setTopLeftY(0 + EPSILON);
+		setSpeedY(-getSpeedY());
+	}
+
+	private void dessinRebondiSurMurDroit() {
+		setTopLeftX(getWorld2d().getWidth() - this.getWidth() - EPSILON);
+		setSpeedX(-getSpeedX());
+	}
+
+	private void dessinRebondiSurMurGauche() {
+		setTopLeftX(0 + EPSILON);
+		setSpeedX(-getSpeedX());
+	}
 }

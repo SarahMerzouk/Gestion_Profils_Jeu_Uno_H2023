@@ -20,58 +20,58 @@ import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
 import uno.maquettes.MaquetteSession;
 
-public class FrontalUno implements FrontendFx{
+public class FrontalUno implements FrontendFx {
 
 	@Override
 	public void createTasks(FrontendTasks tasks) {
-		
+
 		Initialisation.creerTaches(tasks);
-		
+
 		// AfficherProfil.creerTaches(tasks);
 		AfficherProfil.creerTaches(tasks, MaquetteSession.usagerCourant.getId());
-		
+
 		Navigation.creerTaches(tasks);
-		
+
 		AfficherInformations.creerTaches(tasks);
-		
+
 	}
 
 	@Override
 	public void execute() {
-		
+
 	}
 
 	@Override
 	public void registerEvents(EventRegistrar registrar) {
-		
+
 		registrar.registerEvent(EvtAfficherAcceuil.class);
-		
+
 		registrar.registerEvent(EvtAfficherProfil.class);
-		
+
 		registrar.registerEvent(EvtAfficherInformations.class);
 	}
 
 	@Override
 	public void registerViews(ViewRegistrarFx registrar) {
-		
+
 		// Le XML
 		registrar.registerView(VueRacine.class, "/racine.xml");
 		registrar.registerView(VueProfilDesJoueurs.class, "/profilJoueurs.xml");
 		registrar.registerView(VueAcceuil.class, "/acceuil.xml");
 		registrar.registerView(VueInformationsUnJoueur.class, "/informationsJoueurs.xml");
-		
+
 		// Le CSS
-		 registrar.registerStylesheet("/style.css");
-		 
-		 // La LANGUE
-		 registrar.registerDefaultResources("/chaine_fr.properties");
-		 registrar.registerResources(NtroApp.locale("en"), "/chaine_en.properties");
-		 
-		 // FRAGMENTS
-		 registrar.registerFragment(FragmentProfil.class, "/fragments/profils.xml");
-		 
-		 // DONNEES
-		 registrar.registerViewData(DonneesVueInformations.class);
+		registrar.registerStylesheet("/style.css");
+
+		// La LANGUE
+		registrar.registerDefaultResources("/chaine_fr.properties");
+		registrar.registerResources(NtroApp.locale("en"), "/chaine_en.properties");
+
+		// FRAGMENTS
+		registrar.registerFragment(FragmentProfil.class, "/fragments/profils.xml");
+
+		// DONNEES
+		registrar.registerViewData(DonneesVueInformations.class);
 	}
 
 }

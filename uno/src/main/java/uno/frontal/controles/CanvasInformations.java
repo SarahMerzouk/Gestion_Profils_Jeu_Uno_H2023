@@ -9,12 +9,4 @@ public class CanvasInformations extends ResizableWorld2dCanvasFx {
 	protected void initialize() {
 		 setInitialWorldSize(MondeUno2d.LARGEUR_MONDE, MondeUno2d.HAUTEUR_MONDE);	
 	}
-	
-//	public void afficherFps(String imagesParSeconde) {
-//		drawOnCanvas(gc -> {
-//
-//			gc.fillText(imagesParSeconde, 0, 12);
-//
-//		});
-//	}
 }

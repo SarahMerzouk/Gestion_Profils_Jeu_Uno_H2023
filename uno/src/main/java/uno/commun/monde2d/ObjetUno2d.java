@@ -9,7 +9,7 @@ public class ObjetUno2d extends Object2dFx<MondeUno2d> {
 	@Override
 	public void drawOn(ResizableWorld2dCanvasFx canvas) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public class ObjetUno2d extends Object2dFx<MondeUno2d> {
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
