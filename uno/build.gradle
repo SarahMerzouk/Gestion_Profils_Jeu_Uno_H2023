@@ -44,3 +44,22 @@ def localConfig = {
    main = "uno.UnoCardsLocal"
    jvmArgs('-Dsun.java2d.opengl=true')
 }
+
+task(local, dependsOn: 'classes', type: JavaExec) {
+	configure localConfig
+}
+
+task(localFr, dependsOn: 'classes', type: JavaExec) {
+	configure localConfig
+	jvmArgs('-Duser.language=fr')
+
+}
+
+task(localEn, dependsOn: 'classes', type: JavaExec) {
+	configure localConfig
+	jvmArgs('-Duser.language=en')
+
+}
+
+
+
