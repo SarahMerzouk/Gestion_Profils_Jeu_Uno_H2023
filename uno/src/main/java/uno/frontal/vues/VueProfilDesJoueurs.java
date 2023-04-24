@@ -75,7 +75,7 @@ public class VueProfilDesJoueurs extends ViewFx {
 	}
 
 	private void installerMsgAjouterProfil() {
-		MsgAjouterProfil msgAjouterProfil = NtroApp.newMessage(MsgAjouterProfil.class, MaquetteSession.usagerCourant.getId());
+		MsgAjouterProfil msgAjouterProfil = NtroApp.newMessage(MsgAjouterProfil.class);
 
 		boutonAjouter.setOnAction(evtFx -> {
 

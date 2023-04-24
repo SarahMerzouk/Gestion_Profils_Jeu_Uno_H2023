@@ -19,9 +19,4 @@ public class Declarations {
 		registrar.registerValue(Joueur.class);
 	}
 	
-	public static void declarerServeur(ServerRegistrar registrar) {
-		
-        registrar.registerName("localhost");
-        registrar.registerPort(8002);
-    }
 }

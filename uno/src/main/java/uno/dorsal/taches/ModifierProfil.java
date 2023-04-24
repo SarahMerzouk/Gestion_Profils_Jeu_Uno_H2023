@@ -8,27 +8,27 @@ import uno.commun.modeles.ModeleProfil;
 
 public class ModifierProfil {
 
-	public static void creerTaches(BackendTasks tasks, String idUsager) {
+	public static void creerTaches(BackendTasks tasks) {
 
-		tasks.taskGroup("ModifierProfil" + "/" + idUsager)
+		tasks.taskGroup("ModifierProfil")
 
-				.waitsFor(model(ModeleProfil.class, idUsager))
+				.waitsFor(model(ModeleProfil.class))
 
 				.andContains(subTasks -> {
 
-					ajouterProfil(subTasks, idUsager);
+					ajouterProfil(subTasks);
 				});
 	}
 
-	private static void ajouterProfil(BackendTasks subTasks, String idUsager) {
-		subTasks.task("ajouterProfil" + "/" + idUsager)
+	private static void ajouterProfil(BackendTasks subTasks) {
+		subTasks.task("ajouterProfil")
 
-				.waitsFor(message(MsgAjouterProfil.class, idUsager))
+				.waitsFor(message(MsgAjouterProfil.class))
 
 				.thenExecutes(inputs -> {
 
-					MsgAjouterProfil msgAjouterProfil = inputs.get(message(MsgAjouterProfil.class, idUsager));
-					ModeleProfil profil = inputs.get(model(ModeleProfil.class, idUsager));
+					MsgAjouterProfil msgAjouterProfil = inputs.get(message(MsgAjouterProfil.class));
+					ModeleProfil profil = inputs.get(model(ModeleProfil.class));
 
 					msgAjouterProfil.ajouterA(profil);
 				});

@@ -28,7 +28,7 @@ public class FrontalUno implements FrontendFx {
 		Initialisation.creerTaches(tasks);
 
 		// AfficherProfil.creerTaches(tasks);
-		AfficherProfil.creerTaches(tasks, MaquetteSession.usagerCourant.getId());
+		AfficherProfil.creerTaches(tasks);
 
 		Navigation.creerTaches(tasks);
 
