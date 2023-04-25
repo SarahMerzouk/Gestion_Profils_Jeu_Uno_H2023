@@ -4,29 +4,35 @@
 <?import uno.frontal.controles.CanvasInformations?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+
 
 <VBox xmlns:fx="http://javafx.com/fxml"
     fx:controller="uno.frontal.vues.VueInformationsUnJoueur" 
     styleClass="conteneur"
-    id="vue-informations">
-	
-	<Pane styleClass="petit-espace-vertical"/>
-	
-	<HBox VBox.vgrow="ALWAYS" styleClass="conteneur">
+    id="vue-informations">        
 
-        <Pane styleClass="petit-espace-horizontal"/>
+    <VBox styleClass="conteneurModification">
+       <HBox styleClass="conteneurLabelsTextesModificatations">
+        	<Label text="%texteId" id="labelsAttributsProfil"></Label>
+        </HBox>
+        	
+        <HBox styleClass="conteneurLabelsTextesModificatations">
+        	<Label text="%texteNom" id="labelsAttributsProfil"></Label>
+        </HBox>
+        	
+       	<HBox styleClass="conteneurLabelsTextesModificatations">
+        	<Label text="%textePseudo" id="labelsAttributsProfil"></Label>
+        </HBox>
+	</VBox>
 
-        <CanvasInformations 
-            HBox.hgrow="ALWAYS" 
+	<CanvasInformations 
+            VBox.vgrow="ALWAYS" 
             fx:id="canvasInformations" 
             id="canvas-informations">
-        </CanvasInformations>
+	</CanvasInformations>
 
-        <Pane styleClass="petit-espace-horizontal"/>
-
-    </HBox>
-
-    <Pane styleClass="petit-espace-vertical"/>
 	
     <Button
     	fx:id="boutonQuitterPageInfos" 
@@ -35,6 +41,4 @@
         id="button">
     </Button>
     
-    <Pane styleClass="petit-espace-vertical"/>
-
 </VBox>

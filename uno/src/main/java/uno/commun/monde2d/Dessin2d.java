@@ -28,7 +28,7 @@ public class Dessin2d extends ObjetUno2d {
 	public void drawOn(ResizableWorld2dCanvasFx canvas) {
 
 		canvas.drawOnWorld(gc -> {
-
+	
 			gc.setStroke(Color.WHITE);
 			gc.strokeText("INFORMATIONS DU JOUEUR", getTopLeftX(), getTopLeftY());
 			gc.setLineWidth(5);

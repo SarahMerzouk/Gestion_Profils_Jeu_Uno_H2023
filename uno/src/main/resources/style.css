@@ -210,3 +210,24 @@
 #conteneurBoutons{
 	-fx-alignment: center;
 }
+
+#labelsAttributsProfil{
+	-fx-text-fill: white;
+	-fx-font-family: "Goudy Old Style";
+	-fx-font-size: 25px;
+	-fx-alignment: left;
+}
+
+.conteneurModification{
+	-fx-alignment: center;
+	-fx-border-color: gold;
+}
+
+.conteneurLabelsTextesModificatations{
+	-fx-alignment: center;
+}
+#canvas-informations {
+	-fx-max-height:300;
+	-fx-max-width: 300;
+	-fx-alignment: center;
+}
