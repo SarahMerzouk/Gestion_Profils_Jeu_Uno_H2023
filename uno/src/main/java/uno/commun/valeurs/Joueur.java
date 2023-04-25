@@ -51,5 +51,7 @@ public class Joueur implements ModelValue {
 	
 	public void afficherSur(FragmentProfil fragmentProfil) {
 		fragmentProfil.afficherPseudoDuJoueur(getPseudo());
+		
+		fragmentProfil.memoriserIdProfil(id);
     }
 }

@@ -68,5 +68,23 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 	public void retirerTousLesProfils() {
 		listeDesJoueurs.clear();
 	}
+	
+	public void retirerLeProfil(String idProfil) {
+		int indiceProfil = -1;
+		
+		for (int i = 0; i < listeDesJoueurs.size(); i++) {
+			if (listeDesJoueurs.get(i).getId().equals(idProfil)) {
+				indiceProfil = i;
+				break;
+			}
+		}
+		
+		if (indiceProfil >= 0) {
+			listeDesJoueurs.remove(indiceProfil);
+		}
+		
+	}
+	
+	
 
 }

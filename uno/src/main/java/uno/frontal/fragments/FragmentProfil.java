@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import uno.commun.messages.MsgRetirerUnProfil;
 import uno.frontal.evenements.EvtAfficherInformations;
 import uno.frontal.evenements.EvtAfficherProfil;
 
@@ -16,17 +17,19 @@ public class FragmentProfil extends ViewFragmentFx {
 	@FXML
 	private Button boutonVoirInfos;
 
-	// @FXMLs
-	// private Button boutonSupprimerJoueur;
+	@FXML
+	private Button boutonRetirerProfil;
 
 	@FXML
 	private Label labelPseudoJoueur;
+	
+	private String idProfil;
 
 	@Override
 	public void initialiser() {
 		Ntro.assertNotNull("boutonVoirInfos", boutonVoirInfos);
 
-		// Ntro.assertNotNull("boutonSupprimerJoueur",boutonSupprimerJoueur);
+		Ntro.assertNotNull("boutonRetirerProfil",boutonRetirerProfil);
 
 		Ntro.assertNotNull("labelPseudoJoueur", labelPseudoJoueur);
 
@@ -38,6 +41,19 @@ public class FragmentProfil extends ViewFragmentFx {
 		labelPseudoJoueur.setText(pseudoJoueur);
 	}
 
+	public void afficherSousVue(ViewFx sousVue) {
+
+		Pane racineSousVue = sousVue.rootNode();
+
+		rootNode().getChildren().clear();
+		rootNode().getChildren().add(racineSousVue);
+	}
+	
+	public void memoriserIdProfil(String idProfil) {
+        this.idProfil = idProfil;
+        installerMsgRetirerLeProfil(idProfil);
+    }
+	
 	private void installerEvtAfficherInformations() {
 
 		EvtAfficherInformations evtNtro = NtroApp.newEvent(EvtAfficherInformations.class);
@@ -48,12 +64,14 @@ public class FragmentProfil extends ViewFragmentFx {
 
 		});
 	}
-
-	public void afficherSousVue(ViewFx sousVue) {
-
-		Pane racineSousVue = sousVue.rootNode();
-
-		rootNode().getChildren().clear();
-		rootNode().getChildren().add(racineSousVue);
+	
+	protected void installerMsgRetirerLeProfil(String idProfil) {
+		
+		MsgRetirerUnProfil msgRetirerUnProfil = NtroApp.newMessage(MsgRetirerUnProfil.class);
+		msgRetirerUnProfil.setIdProfil(idProfil);
+		
+		boutonRetirerProfil.setOnAction(evtFx -> {
+			msgRetirerUnProfil.send();
+		});
 	}
 }
