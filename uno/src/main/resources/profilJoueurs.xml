@@ -26,21 +26,30 @@
 		VBox.vgrow="ALWAYS"
 		 styleClass="logo">
 	</ResizableAvatar>
-
-	<Button 
-		fx:id="boutonRetourVersAcceuil"
-		text="%button_retour"
-		styleClass="gros-bouton"
-		id="button">
-	</Button>
-
-	<Button
-		fx:id="boutonAjouter" 
-		text="%button_ajouter"
-		styleClass="gros-bouton" 
-		id="button">
-	</Button>
-
+	
+	<HBox id="conteneurBoutons">
+		<Button 
+			fx:id="boutonRetourVersAcceuil"
+			text="%button_retour"
+			styleClass="gros-bouton"
+			id="button">
+		</Button>
+		
+		<Button
+			fx:id="boutonAjouter" 
+			text="%button_ajouter"
+			styleClass="gros-bouton" 
+			id="button">
+		</Button>
+		
+		<Button
+			fx:id="boutonRetirerTousLesProfils"
+			text="%boutton_retirerTous"
+			styleClass="gros-bouton" 
+			id="button">
+		</Button>
+	</HBox>
+	
 	<Label 
 		text="%textePresentationListe"
 		id="texte-presentation-liste">

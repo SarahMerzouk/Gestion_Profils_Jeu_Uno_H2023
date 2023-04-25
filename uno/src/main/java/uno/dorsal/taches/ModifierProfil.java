@@ -4,6 +4,7 @@ import static ca.ntro.app.tasks.backend.BackendTasks.*;
 
 import ca.ntro.app.tasks.backend.BackendTasks;
 import uno.commun.messages.MsgAjouterProfil;
+import uno.commun.messages.MsgRetirerTousLesProfils;
 import uno.commun.modeles.ModeleProfil;
 
 public class ModifierProfil {
@@ -17,6 +18,7 @@ public class ModifierProfil {
 				.andContains(subTasks -> {
 
 					ajouterProfil(subTasks);
+					retirerTousLesProfils(subTasks);
 				});
 	}
 
@@ -32,6 +34,20 @@ public class ModifierProfil {
 
 					msgAjouterProfil.ajouterA(profil);
 				});
+	}
+	
+	private static void retirerTousLesProfils(BackendTasks subTasks) {
+		subTasks.task("retirerTousLesProfils")
+		
+		.waitsFor(message(MsgRetirerTousLesProfils.class))
+
+		.thenExecutes(inputs -> {
+
+			MsgRetirerTousLesProfils msgRetirerTousLesProfils = inputs.get(message(MsgRetirerTousLesProfils.class));
+			ModeleProfil profil = inputs.get(model(ModeleProfil.class));
+
+			msgRetirerTousLesProfils.supprimerTout(profil);
+		});
 	}
 
 }

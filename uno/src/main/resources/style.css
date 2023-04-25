@@ -206,3 +206,7 @@
     -fx-background:transparent;
     -fx-hbar-policy:never;
 }
+
+#conteneurBoutons{
+	-fx-alignment: center;
+}

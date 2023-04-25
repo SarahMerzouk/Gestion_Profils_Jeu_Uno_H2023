@@ -65,4 +65,8 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 		listeDesJoueurs.add(player);
 	}
 
+	public void retirerTousLesProfils() {
+		listeDesJoueurs.clear();
+	}
+
 }

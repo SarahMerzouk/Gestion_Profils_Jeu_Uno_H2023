@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import uno.commun.messages.MsgAjouterProfil;
+import uno.commun.messages.MsgRetirerTousLesProfils;
 import uno.commun.modeles.ModeleProfil;
 import uno.commun.valeurs.Joueur;
 import uno.frontal.evenements.EvtAfficherAcceuil;
@@ -35,6 +36,9 @@ public class VueProfilDesJoueurs extends ViewFx {
 	@FXML
 	private VBox conteneurProfil;
 
+	@FXML
+	private Button boutonRetirerTousLesProfils;
+
 	private ViewLoader<FragmentProfil> viewLoaderProfil;
 
 	@FXML
@@ -49,12 +53,15 @@ public class VueProfilDesJoueurs extends ViewFx {
 
 		Ntro.assertNotNull("conteneurProfil", conteneurProfil);
 
+		Ntro.assertNotNull("boutonRetirerTousLesProfils", boutonRetirerTousLesProfils);
+
 		Ntro.assertNotNull(logo);
 
 		logo.setImage(new Image("/logoUnePersonne.jpg"));
 
 		installerEvtAfficherAcceuil();
 		installerMsgAjouterProfil();
+		installerMsgSupprimerTousLesProfils();
 	}
 
 	private void installerEvtAfficherAcceuil() {
@@ -79,12 +86,19 @@ public class VueProfilDesJoueurs extends ViewFx {
 
 		boutonAjouter.setOnAction(evtFx -> {
 
-			// Le profil courant s'inscrit
 			msgAjouterProfil.setJoueur(MaquetteProfils.usagerCourant());
 			msgAjouterProfil.send();
 
-			// � chaque clic, on passe un nouveau profil
 			MaquetteProfils.prochainUsager();
+		});
+
+	}
+
+	private void installerMsgSupprimerTousLesProfils() {
+		MsgRetirerTousLesProfils msgRetirerTousLesProfils = NtroApp.newMessage(MsgRetirerTousLesProfils.class);
+
+		boutonRetirerTousLesProfils.setOnAction(evtFx -> {
+			msgRetirerTousLesProfils.send();
 		});
 
 	}
