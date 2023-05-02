@@ -18,7 +18,7 @@ public class AfficherInformations {
 	public static void creerTaches(FrontendTasks tasks) {
 
 		creerDonneesVueInformations(tasks);
-		
+
 		tasks.taskGroup("AfficherInformations")
 
 				.waitsFor(created(DonneesVueInformations.class))
@@ -62,7 +62,7 @@ public class AfficherInformations {
 					donneesVueInformations.afficherSur(vueInformationsUnJoueur);
 				});
 	}
-	
+
 	private static void observerInformations(FrontendTasks tasks) {
 
 		tasks.task("observerInformations")
@@ -71,10 +71,10 @@ public class AfficherInformations {
 
 				.executes(inputs -> {
 
-					VueInformationsUnJoueur vueInformationsUnJoueur = inputs.get(created(VueInformationsUnJoueur.class));
+					VueInformationsUnJoueur vueInformationsUnJoueur = inputs
+							.get(created(VueInformationsUnJoueur.class));
 					Modified<ModeleProfil> profil = inputs.get(modified(ModeleProfil.class));
 
-					
 					ModeleProfil ancienProfil = profil.previousValue();
 					ModeleProfil profilCourrant = profil.currentValue();
 

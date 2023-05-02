@@ -26,8 +26,8 @@ public class Navigation {
              .andContains(subTasks -> {
 
                  afficherVueProfil(subTasks);
-                 afficherVueAcceuil(subTasks);
-                 afficherVueInformationsDuJoueur(subTasks);
+					afficherVueAcceuil(subTasks);
+					afficherVueInformationsDuJoueur(subTasks);
                
              });
     }

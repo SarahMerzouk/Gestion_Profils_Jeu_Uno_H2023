@@ -14,36 +14,36 @@
     id="vue-informations">        
 
     <VBox>
-    	<HBox styleClass="conteneurModification">
-	    	<VBox>
+    	<HBox styleClass="conteneurModification" VBox.vgrow="ALWAYS">
+	    	<VBox HBox.hgrow="ALWAYS">
 	    		
-	    		<Pane minHeight="10" minWidth="130"/>   
+	    		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
 	       		
-	       		<Label text="%texteId" styleClass="labelsAttributsProfil"></Label>
+	       		<Label VBox.vgrow="ALWAYS" text="%texteId" styleClass="labelsAttributsProfil"></Label>
 	       		
-	       		<Pane minHeight="10" minWidth="130"/>   
+	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
 	       		
-	       		<Label text="%texteNom" styleClass="labelsAttributsProfil"></Label>
+	       		<Label VBox.vgrow="ALWAYS" text="%texteNom" styleClass="labelsAttributsProfil"></Label>
 	       		
-	       		<Pane minHeight="10" minWidth="130"/>   
+	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
 	       		
-	       		<Label text="%textePseudo" styleClass="labelsAttributsProfil"></Label>
+	       		<Label VBox.vgrow="ALWAYS" text="%textePseudo" styleClass="labelsAttributsProfil"></Label>
 	       	</VBox>
 	       	
-	       	<Pane minHeight="15" minWidth="130"/>   
+	       	<Pane HBox.hgrow="ALWAYS" minHeight="15" minWidth="130"/>   
 	       	
-	       	<VBox>
-	       		<Pane minHeight="10" minWidth="130"/>   
+	       	<VBox HBox.hgrow="ALWAYS">
+	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
 	       		
-	       		<TextField fx:id="textFieldId"></TextField>
+	       		<TextField VBox.vgrow="ALWAYS" fx:id="textFieldId"></TextField>
 	       		
-	       		<Pane minHeight="10" minWidth="130"/>   
+	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
 	       		
-	       		<TextField fx:id="textFieldNom"></TextField>
+	       		<TextField VBox.vgrow="ALWAYS" fx:id="textFieldNom"></TextField>
 	       		
-	       		<Pane minHeight="10" minWidth="130"/>   
+	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
 	       		
-	       		<TextField fx:id="textFieldPseudo"></TextField>
+	       		<TextField VBox.vgrow="ALWAYS" fx:id="textFieldPseudo"></TextField>
 	       	</VBox>
 	       	
 		</HBox>
@@ -58,6 +58,7 @@
 	
     <Button
     	fx:id="boutonQuitterPageInfos" 
+    	VBox.vgrow="ALWAYS"
         text="%retourPageProfil"
         styleClass="gros-bouton"
         id="button">

@@ -15,7 +15,6 @@
 	fx:controller="uno.frontal.vues.VueProfilDesJoueurs"
 	styleClass="conteneur" id="vue-profil-des-joueurs">
 
-
 	<Label
 		 text="%textePage"
 		  id="texte">
@@ -27,9 +26,10 @@
 		 styleClass="logo">
 	</ResizableAvatar>
 	
-	<HBox id="conteneurBoutons">
+	<HBox id="conteneurBoutons" VBox.vgrow="ALWAYS">
 		<Button 
 			fx:id="boutonRetourVersAcceuil"
+			HBox.hgrow="ALWAYS"
 			text="%button_retour"
 			styleClass="gros-bouton"
 			id="button">
@@ -37,6 +37,7 @@
 		
 		<Button
 			fx:id="boutonAjouter" 
+			HBox.hgrow="ALWAYS"
 			text="%button_ajouter"
 			styleClass="gros-bouton" 
 			id="button">
@@ -44,6 +45,7 @@
 		
 		<Button
 			fx:id="boutonRetirerTousLesProfils"
+			HBox.hgrow="ALWAYS"
 			text="%boutton_retirerTous"
 			styleClass="gros-bouton" 
 			id="button">
@@ -62,6 +64,7 @@
 			<VBox
 				styleClass="conteneur"
 				fx:id="conteneurProfil"
+				VBox.vgrow="ALWAYS"
 				id="conteneur-profil">
 			</VBox>
 
