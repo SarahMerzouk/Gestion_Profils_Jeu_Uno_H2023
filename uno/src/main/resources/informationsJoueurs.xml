@@ -13,18 +13,40 @@
     styleClass="conteneur"
     id="vue-informations">        
 
-    <VBox styleClass="conteneurModification">
-       <HBox styleClass="conteneurLabelsTextesModificatations">
-        	<Label text="%texteId" id="labelsAttributsProfil"></Label>
-        </HBox>
-        	
-        <HBox styleClass="conteneurLabelsTextesModificatations">
-        	<Label text="%texteNom" id="labelsAttributsProfil"></Label>
-        </HBox>
-        	
-       	<HBox styleClass="conteneurLabelsTextesModificatations">
-        	<Label text="%textePseudo" id="labelsAttributsProfil"></Label>
-        </HBox>
+    <VBox>
+    	<HBox styleClass="conteneurModification">
+	    	<VBox>
+	    		
+	    		<Pane minHeight="10" minWidth="130"/>   
+	       		
+	       		<Label text="%texteId" styleClass="labelsAttributsProfil"></Label>
+	       		
+	       		<Pane minHeight="10" minWidth="130"/>   
+	       		
+	       		<Label text="%texteNom" styleClass="labelsAttributsProfil"></Label>
+	       		
+	       		<Pane minHeight="10" minWidth="130"/>   
+	       		
+	       		<Label text="%textePseudo" styleClass="labelsAttributsProfil"></Label>
+	       	</VBox>
+	       	
+	       	<Pane minHeight="15" minWidth="130"/>   
+	       	
+	       	<VBox>
+	       		<Pane minHeight="10" minWidth="130"/>   
+	       		
+	       		<TextField fx:id="textFieldId"></TextField>
+	       		
+	       		<Pane minHeight="10" minWidth="130"/>   
+	       		
+	       		<TextField fx:id="textFieldNom"></TextField>
+	       		
+	       		<Pane minHeight="10" minWidth="130"/>   
+	       		
+	       		<TextField fx:id="textFieldPseudo"></TextField>
+	       	</VBox>
+	       	
+		</HBox>
 	</VBox>
 
 	<CanvasInformations 

@@ -52,12 +52,14 @@ public class FragmentProfil extends ViewFragmentFx {
 	public void memoriserIdProfil(String idProfil) {
         this.idProfil = idProfil;
         installerMsgRetirerLeProfil(idProfil);
+        installerEvtAfficherInformations();
     }
 	
 	private void installerEvtAfficherInformations() {
 
 		EvtAfficherInformations evtNtro = NtroApp.newEvent(EvtAfficherInformations.class);
-
+		evtNtro.setIdProfil(idProfil);
+		
 		boutonVoirInfos.setOnAction(evtFx -> {
 
 			evtNtro.trigger();

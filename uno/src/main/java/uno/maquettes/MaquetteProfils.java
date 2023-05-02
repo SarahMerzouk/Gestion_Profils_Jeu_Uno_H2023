@@ -8,7 +8,8 @@ import uno.commun.valeurs.Joueur;
 public class MaquetteProfils {
 
     private static Joueur usagerCourant = usagerAleatoire();
-
+    public static String idProfilCourant = null;
+    		
     public static Joueur usagerCourant() {
         return MaquetteSession.usagerCourant;
     }
@@ -78,4 +79,13 @@ public class MaquetteProfils {
 
         return Ntro.random().choice(choixDeNoms);
     }
+
+	public static String getIdProfilCourant() {
+		return idProfilCourant;
+	}
+
+	public static void setIdProfilCourant(String idProfilCourant) {
+		MaquetteProfils.idProfilCourant = idProfilCourant;
+	}
+  
 }

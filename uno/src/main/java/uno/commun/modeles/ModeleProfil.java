@@ -8,6 +8,7 @@ import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
 import uno.commun.messages.MsgAjouterProfil;
 import uno.commun.valeurs.Joueur;
+import uno.frontal.vues.VueInformationsUnJoueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
 
 public class ModeleProfil implements Model, WriteObjectGraph {
@@ -26,7 +27,7 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 		this.listeDesJoueurs = listeDesJoueurs;
 	}
 
-	public void afficherSur(VueProfilDesJoueurs vueProfilDesJoueurs) {
+	public void afficherSurProfil(VueProfilDesJoueurs vueProfilDesJoueurs) {
 
 		vueProfilDesJoueurs.viderListeProfils();
 
@@ -35,7 +36,23 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 			vueProfilDesJoueurs.ajouterProfil(joueur);
 		}
 	}
+	
+	public void afficherSurInformations(VueInformationsUnJoueur vueInformationsUnJoueur, String idProfil) {
+				
+		Joueur joueur = null;
 
+		for (int i = 0; i < listeDesJoueurs.size(); i++) {
+			if (listeDesJoueurs.get(i).getId().equals(idProfil)) {
+				joueur = listeDesJoueurs.get(i);
+				break;
+			}
+		}
+		
+		if (joueur != null) {
+			vueInformationsUnJoueur.afficherInformations(joueur);
+		}		
+	}
+	
 	@Override
 	public String toString() {
 

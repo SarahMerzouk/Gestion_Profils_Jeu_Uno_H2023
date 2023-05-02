@@ -36,7 +36,7 @@ public class AfficherProfil {
 					ModeleProfil ancienProfil = profil.previousValue();
 					ModeleProfil profilCourrant = profil.currentValue();
 
-					profilCourrant.afficherSur(vueProfil);
+					profilCourrant.afficherSurProfil(vueProfil);
 
 				});
 	}

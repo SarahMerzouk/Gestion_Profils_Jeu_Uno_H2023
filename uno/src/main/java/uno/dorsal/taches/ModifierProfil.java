@@ -4,6 +4,7 @@ import static ca.ntro.app.tasks.backend.BackendTasks.*;
 
 import ca.ntro.app.tasks.backend.BackendTasks;
 import uno.commun.messages.MsgAjouterProfil;
+import uno.commun.messages.MsgRafraichirModeleProfil;
 import uno.commun.messages.MsgRetirerTousLesProfils;
 import uno.commun.messages.MsgRetirerUnProfil;
 import uno.commun.modeles.ModeleProfil;
@@ -21,6 +22,8 @@ public class ModifierProfil {
 					ajouterProfil(subTasks);
 					retirerTousLesProfils(subTasks);
 					retirerLeProfil(subTasks);
+					rafraichirProfil(subTasks);
+					
 				});
 	}
 
@@ -35,6 +38,18 @@ public class ModifierProfil {
 					ModeleProfil profil = inputs.get(model(ModeleProfil.class));
 
 					msgAjouterProfil.ajouterA(profil);
+				});
+	}
+	
+	private static void rafraichirProfil(BackendTasks subTasks) {
+		subTasks.task("rafraichirModeleProfil")
+
+				.waitsFor(message(MsgRafraichirModeleProfil.class))
+
+				.thenExecutes(inputs -> {
+
+					// XXX: contournement pour forcer a re-observer le modele
+				
 				});
 	}
 	

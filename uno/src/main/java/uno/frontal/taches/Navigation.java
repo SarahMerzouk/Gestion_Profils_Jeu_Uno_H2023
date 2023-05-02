@@ -1,6 +1,7 @@
 package uno.frontal.taches;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import uno.commun.messages.MsgRafraichirModeleProfil;
 import uno.frontal.evenements.EvtAfficherAcceuil;
 import uno.frontal.evenements.EvtAfficherInformations;
 import uno.frontal.evenements.EvtAfficherProfil;
@@ -8,7 +9,11 @@ import uno.frontal.vues.VueAcceuil;
 import uno.frontal.vues.VueInformationsUnJoueur;
 import uno.frontal.vues.VueProfilDesJoueurs;
 import uno.frontal.vues.VueRacine;
+import uno.maquettes.MaquetteProfils;
+
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
+
+import ca.ntro.app.NtroApp;
 
 public class Navigation {
 
@@ -56,6 +61,8 @@ public class Navigation {
                   VueProfilDesJoueurs vueProfilDesJoueurs = inputs.get(created(VueProfilDesJoueurs.class));
 
                   vueRacine.afficherSousVue(vueProfilDesJoueurs);
+                  
+         
 
               });
     }
@@ -67,11 +74,19 @@ public class Navigation {
               .waitsFor(event(EvtAfficherInformations.class))
               
               .thenExecutes(inputs -> {
-
+            	  
+            	  EvtAfficherInformations evtAfficherInformations = inputs.get(event(EvtAfficherInformations.class));
                   VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
                   VueInformationsUnJoueur vueInformationsUnJoueur = inputs.get(created(VueInformationsUnJoueur.class));
-
+                  
+                  System.out.print("evt: " + evtAfficherInformations.getIdProfil());
+                  System.out.print("ID maquette: " + evtAfficherInformations.getIdProfil());
+                 
+                  MaquetteProfils.setIdProfilCourant(evtAfficherInformations.getIdProfil());
+       
                   vueRacine.afficherSousVue(vueInformationsUnJoueur);
+                  
+                  NtroApp.newMessage(MsgRafraichirModeleProfil.class).send();
 
               });
     }
