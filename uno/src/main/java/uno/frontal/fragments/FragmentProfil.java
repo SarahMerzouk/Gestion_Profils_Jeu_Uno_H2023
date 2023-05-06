@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import uno.commun.messages.MsgModifierJoueur;
 import uno.commun.messages.MsgRetirerUnProfil;
+import uno.commun.valeurs.Joueur;
 import uno.frontal.evenements.EvtAfficherInformations;
 import uno.frontal.evenements.EvtAfficherProfil;
 
@@ -76,4 +78,5 @@ public class FragmentProfil extends ViewFragmentFx {
 			msgRetirerUnProfil.send();
 		});
 	}
+	
 }

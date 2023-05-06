@@ -40,11 +40,12 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 	public void afficherSurInformations(VueInformationsUnJoueur vueInformationsUnJoueur, String idProfil) {
 				
 		Joueur joueur = null;
-
+		
 		for (int i = 0; i < listeDesJoueurs.size(); i++) {
 			if (listeDesJoueurs.get(i).getId().equals(idProfil)) {
 				joueur = listeDesJoueurs.get(i);
 				break;
+				
 			}
 		}
 		
@@ -102,6 +103,20 @@ public class ModeleProfil implements Model, WriteObjectGraph {
 		
 	}
 	
-	
+	public void modifierJoueur(String idProfil, Joueur newJoueur) {
+		int indiceProfil = -1;
+				
+		for (int i = 0; i < listeDesJoueurs.size(); i++ ) {
+			if(listeDesJoueurs.get(i).getId().equals(idProfil)) {
+	                indiceProfil = i;
+	                break;
+	            }
+		}
+
+		if (indiceProfil >= 0) {
+			listeDesJoueurs.set(indiceProfil, newJoueur);
+		}
+	}
+
 
 }

@@ -14,36 +14,36 @@
     id="vue-informations">        
 
     <VBox>
-    	<HBox styleClass="conteneurModification" VBox.vgrow="ALWAYS">
-	    	<VBox HBox.hgrow="ALWAYS">
+    	<HBox styleClass="conteneurModification">
+	    	<VBox>
 	    		
-	    		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
+	    		<Pane minHeight="10" minWidth="130"/>   
 	       		
-	       		<Label VBox.vgrow="ALWAYS" text="%texteId" styleClass="labelsAttributsProfil"></Label>
+	       		<Label text="%texteId" styleClass="labelsAttributsProfil"></Label>
 	       		
-	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
+	       		<Pane minHeight="10" minWidth="130"/>   
 	       		
-	       		<Label VBox.vgrow="ALWAYS" text="%texteNom" styleClass="labelsAttributsProfil"></Label>
+	       		<Label text="%texteNom" styleClass="labelsAttributsProfil"></Label>
 	       		
-	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
+	       		<Pane minHeight="10" minWidth="130"/>   
 	       		
-	       		<Label VBox.vgrow="ALWAYS" text="%textePseudo" styleClass="labelsAttributsProfil"></Label>
+	       		<Label text="%textePseudo" styleClass="labelsAttributsProfil"></Label>
 	       	</VBox>
 	       	
-	       	<Pane HBox.hgrow="ALWAYS" minHeight="15" minWidth="130"/>   
+	       	<Pane minHeight="15" minWidth="130"/>   
 	       	
-	       	<VBox HBox.hgrow="ALWAYS">
-	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
+	       	<VBox>
+	       		<Pane minHeight="10" minWidth="130"/>   
 	       		
-	       		<TextField VBox.vgrow="ALWAYS" fx:id="textFieldId"></TextField>
+	       		<TextField fx:id="textFieldId"></TextField>
 	       		
-	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
+	       		<Pane minHeight="10" minWidth="130"/>   
 	       		
-	       		<TextField VBox.vgrow="ALWAYS" fx:id="textFieldNom"></TextField>
+	       		<TextField fx:id="textFieldNom"></TextField>
 	       		
-	       		<Pane VBox.vgrow="ALWAYS" minHeight="10" minWidth="130"/>   
+	       		<Pane minHeight="10" minWidth="130"/>   
 	       		
-	       		<TextField VBox.vgrow="ALWAYS" fx:id="textFieldPseudo"></TextField>
+	       		<TextField fx:id="textFieldPseudo"></TextField>
 	       	</VBox>
 	       	
 		</HBox>
@@ -63,5 +63,13 @@
         styleClass="gros-bouton"
         id="button">
     </Button>
+    
+    <Button
+			fx:id="boutonModifier"
+			HBox.hgrow="ALWAYS"
+			text="%bouton_modier"
+			styleClass="gros-bouton" 
+			id="button">
+	</Button>
     
 </VBox>

@@ -17,78 +17,74 @@ import ca.ntro.app.NtroApp;
 
 public class Navigation {
 
-    public static void creerTaches(FrontendTasks tasks) {
+	public static void creerTaches(FrontendTasks tasks) {
 
-        tasks.taskGroup("Navigation")
+		tasks.taskGroup("Navigation")
 
-             .waitsFor("Initialisation")
+				.waitsFor("Initialisation")
 
-             .andContains(subTasks -> {
+				.andContains(subTasks -> {
 
-                 afficherVueProfil(subTasks);
+					afficherVueProfil(subTasks);
 					afficherVueAcceuil(subTasks);
 					afficherVueInformationsDuJoueur(subTasks);
-               
-             });
-    }
 
-    private static void afficherVueAcceuil(FrontendTasks tasks) {
+				});
+	}
 
-        tasks.task("afficherVueAcceuil")
+	private static void afficherVueAcceuil(FrontendTasks tasks) {
 
-             .waitsFor(created(VueAcceuil.class))
+		tasks.task("afficherVueAcceuil")
 
-             .waitsFor(event(EvtAfficherAcceuil.class))
+				.waitsFor(created(VueAcceuil.class))
 
-             .thenExecutes(inputs -> {
+				.waitsFor(event(EvtAfficherAcceuil.class))
 
-                 VueRacine vueRacine = inputs.get(created(VueRacine.class));
-                 VueAcceuil vueAcceuil = inputs.get(created(VueAcceuil.class));
+				.thenExecutes(inputs -> {
 
-                 vueRacine.afficherSousVue(vueAcceuil);
-             });
-    }
+					VueRacine vueRacine = inputs.get(created(VueRacine.class));
+					VueAcceuil vueAcceuil = inputs.get(created(VueAcceuil.class));
 
-    private static void afficherVueProfil(FrontendTasks tasks) {
+					vueRacine.afficherSousVue(vueAcceuil);
+				});
+	}
 
-        tasks.task("afficherVueProfil")
+	private static void afficherVueProfil(FrontendTasks tasks) {
 
-              .waitsFor(event(EvtAfficherProfil.class))
-              
-              .thenExecutes(inputs -> {
+		tasks.task("afficherVueProfil")
 
-                  VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
-                  VueProfilDesJoueurs vueProfilDesJoueurs = inputs.get(created(VueProfilDesJoueurs.class));
+				.waitsFor(event(EvtAfficherProfil.class))
 
-                  vueRacine.afficherSousVue(vueProfilDesJoueurs);
-                  
-         
+				.thenExecutes(inputs -> {
 
-              });
-    }
-    
-    private static void afficherVueInformationsDuJoueur(FrontendTasks tasks) {
+					VueRacine vueRacine = inputs.get(created(VueRacine.class));
+					VueProfilDesJoueurs vueProfilDesJoueurs = inputs.get(created(VueProfilDesJoueurs.class));
 
-        tasks.task("afficherVueInformationsDuJoueur")
+					vueRacine.afficherSousVue(vueProfilDesJoueurs);
 
-              .waitsFor(event(EvtAfficherInformations.class))
-              
-              .thenExecutes(inputs -> {
-            	  
-            	  EvtAfficherInformations evtAfficherInformations = inputs.get(event(EvtAfficherInformations.class));
-                  VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
-                  VueInformationsUnJoueur vueInformationsUnJoueur = inputs.get(created(VueInformationsUnJoueur.class));
-                  
-                  System.out.print("evt: " + evtAfficherInformations.getIdProfil());
-                  System.out.print("ID maquette: " + evtAfficherInformations.getIdProfil());
-                 
-                  MaquetteProfils.setIdProfilCourant(evtAfficherInformations.getIdProfil());
-       
-                  vueRacine.afficherSousVue(vueInformationsUnJoueur);
-                  
-                  NtroApp.newMessage(MsgRafraichirModeleProfil.class).send();
+				});
+	}
 
-              });
-    }
+	private static void afficherVueInformationsDuJoueur(FrontendTasks tasks) {
+
+		tasks.task("afficherVueInformationsDuJoueur")
+
+				.waitsFor(event(EvtAfficherInformations.class))
+
+				.thenExecutes(inputs -> {
+
+					EvtAfficherInformations evtAfficherInformations = inputs.get(event(EvtAfficherInformations.class));
+					VueRacine vueRacine = inputs.get(created(VueRacine.class));
+					VueInformationsUnJoueur vueInformationsUnJoueur = inputs
+							.get(created(VueInformationsUnJoueur.class));
+
+					MaquetteProfils.setIdProfilCourant(evtAfficherInformations.getIdProfil());
+
+					vueRacine.afficherSousVue(vueInformationsUnJoueur);
+
+					NtroApp.newMessage(MsgRafraichirModeleProfil.class).send();
+
+				});
+	}
 
 }

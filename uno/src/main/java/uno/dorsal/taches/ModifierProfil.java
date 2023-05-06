@@ -2,8 +2,10 @@ package uno.dorsal.taches;
 
 import static ca.ntro.app.tasks.backend.BackendTasks.*;
 
+import ca.ntro.app.NtroApp;
 import ca.ntro.app.tasks.backend.BackendTasks;
 import uno.commun.messages.MsgAjouterProfil;
+import uno.commun.messages.MsgModifierJoueur;
 import uno.commun.messages.MsgRafraichirModeleProfil;
 import uno.commun.messages.MsgRetirerTousLesProfils;
 import uno.commun.messages.MsgRetirerUnProfil;
@@ -23,7 +25,8 @@ public class ModifierProfil {
 					retirerTousLesProfils(subTasks);
 					retirerLeProfil(subTasks);
 					rafraichirProfil(subTasks);
-					
+					modifierJoueur(subTasks);
+
 				});
 	}
 
@@ -40,7 +43,7 @@ public class ModifierProfil {
 					msgAjouterProfil.ajouterA(profil);
 				});
 	}
-	
+
 	private static void rafraichirProfil(BackendTasks subTasks) {
 		subTasks.task("rafraichirModeleProfil")
 
@@ -49,36 +52,51 @@ public class ModifierProfil {
 				.thenExecutes(inputs -> {
 
 					// XXX: contournement pour forcer a re-observer le modele
-				
+
 				});
 	}
-	
+
 	private static void retirerTousLesProfils(BackendTasks subTasks) {
 		subTasks.task("retirerTousLesProfils")
-		
-		.waitsFor(message(MsgRetirerTousLesProfils.class))
 
-		.thenExecutes(inputs -> {
+				.waitsFor(message(MsgRetirerTousLesProfils.class))
 
-			MsgRetirerTousLesProfils msgRetirerTousLesProfils = inputs.get(message(MsgRetirerTousLesProfils.class));
-			ModeleProfil profil = inputs.get(model(ModeleProfil.class));
+				.thenExecutes(inputs -> {
 
-			msgRetirerTousLesProfils.supprimerTout(profil);
-		});
+					MsgRetirerTousLesProfils msgRetirerTousLesProfils = inputs
+							.get(message(MsgRetirerTousLesProfils.class));
+					ModeleProfil profil = inputs.get(model(ModeleProfil.class));
+
+					msgRetirerTousLesProfils.supprimerTout(profil);
+				});
+	}
+
+	private static void retirerLeProfil(BackendTasks subTasks) {
+		subTasks.task("retirerLeProfil")
+
+				.waitsFor(message(MsgRetirerUnProfil.class))
+
+				.thenExecutes(inputs -> {
+
+					MsgRetirerUnProfil msgRetirerUnProfil = inputs.get(message(MsgRetirerUnProfil.class));
+					ModeleProfil profil = inputs.get(model(ModeleProfil.class));
+
+					msgRetirerUnProfil.retirerLeProfil(profil);
+				});
+
 	}
 	
-	 private static void retirerLeProfil(BackendTasks subTasks) {
-	        subTasks.task("retirerLeProfil")
+	private static void modifierJoueur(BackendTasks subTasks) {
+		  subTasks.task("modifierJoueur")
 
-	             .waitsFor(message(MsgRetirerUnProfil.class))
-	             
-	             .thenExecutes(inputs -> {
+          .waitsFor(message(MsgModifierJoueur.class))
+          
+          .thenExecutes(inputs -> {
 
-	            	 MsgRetirerUnProfil msgRetirerUnProfil = inputs.get(message(MsgRetirerUnProfil.class));
-	            	 ModeleProfil profil = inputs.get(model(ModeleProfil.class));
-	            	 
-	            	 msgRetirerUnProfil.retirerLeProfil(profil);
-	             });
+        	  MsgModifierJoueur msgModifierJoueur = inputs.get(message(MsgModifierJoueur.class));
+              ModeleProfil    profil          = inputs.get(model(ModeleProfil.class));
 
-	    }
+              msgModifierJoueur.modifier(profil);              
+          });
+	}
 }
