@@ -10,6 +10,7 @@ import uno.commun.messages.MsgRafraichirModeleProfil;
 import uno.commun.messages.MsgRetirerTousLesProfils;
 import uno.commun.messages.MsgRetirerUnProfil;
 import uno.commun.modeles.ModeleProfil;
+import uno.maquettes.MaquetteProfils;
 
 public class ModifierProfil {
 
@@ -95,7 +96,7 @@ public class ModifierProfil {
 
         	  MsgModifierJoueur msgModifierJoueur = inputs.get(message(MsgModifierJoueur.class));
               ModeleProfil    profil          = inputs.get(model(ModeleProfil.class));
-
+              
               msgModifierJoueur.modifier(profil);              
           });
 	}

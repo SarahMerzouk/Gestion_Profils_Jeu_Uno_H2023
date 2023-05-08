@@ -9,6 +9,7 @@ public class MaquetteProfils {
 
     private static Joueur usagerCourant = usagerAleatoire();
     public static String idProfilCourant = null;
+    public static Joueur usagerProfilCourant = null;
     		
     public static Joueur usagerCourant() {
         return MaquetteSession.usagerCourant;
@@ -87,5 +88,12 @@ public class MaquetteProfils {
 	public static void setIdProfilCourant(String idProfilCourant) {
 		MaquetteProfils.idProfilCourant = idProfilCourant;
 	}
-  
+
+	public static Joueur getUsagerProfilCourant() {
+		return usagerProfilCourant;
+	}
+
+	public static void setUsagerProfilCourant(Joueur usagerProfilCourant) {
+		MaquetteProfils.usagerProfilCourant = usagerProfilCourant;
+	}
 }

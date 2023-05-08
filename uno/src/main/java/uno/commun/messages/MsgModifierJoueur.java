@@ -24,7 +24,7 @@ public class MsgModifierJoueur  extends MessageNtro {
 	public Joueur getNewJoueur() {
 		return newJoueur;
 	}
-
+	
 	public void setNewJoueur(Joueur newJoueur) {
 		this.newJoueur = newJoueur;
 	}

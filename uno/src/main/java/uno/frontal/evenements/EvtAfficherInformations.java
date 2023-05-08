@@ -1,6 +1,7 @@
 package uno.frontal.evenements;
 
 import ca.ntro.app.frontend.events.EventNtro;
+import uno.commun.valeurs.Joueur;
 import uno.frontal.fragments.FragmentProfil;
 
 public class EvtAfficherInformations extends EventNtro {
@@ -18,5 +19,4 @@ public class EvtAfficherInformations extends EventNtro {
 	public void setIdProfil(String idProfil) {
 		this.idProfil = idProfil;
 	}
-	
 }

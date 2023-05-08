@@ -11,6 +11,7 @@ import uno.commun.monde2d.MondeUno2d;
 import uno.commun.valeurs.Joueur;
 import uno.frontal.controles.CanvasInformations;
 import uno.frontal.evenements.EvtAfficherProfil;
+import uno.maquettes.MaquetteProfils;
 
 public class VueInformationsUnJoueur extends ViewFx {
 	
@@ -31,9 +32,6 @@ public class VueInformationsUnJoueur extends ViewFx {
 	 
 	 @FXML 
 	 private TextField textFieldPseudo;
-	 
-	 private String idProfil;
-	 private Joueur joueur;
 
 	@Override
 	public void initialiser() {
@@ -45,8 +43,9 @@ public class VueInformationsUnJoueur extends ViewFx {
 		Ntro.assertNotNull("textFieldNom", textFieldNom);
 		Ntro.assertNotNull("textFieldPseudo", textFieldPseudo);
 		
+		textFieldId.setEditable(false);
 		installerEvtAfficherProfils();
-		installerMsgModifier(idProfil, joueur);
+		installerMsgModifier();
 	}
 	
 	private void installerEvtAfficherProfils() {
@@ -60,14 +59,16 @@ public class VueInformationsUnJoueur extends ViewFx {
         });
     }
 	
-	protected void installerMsgModifier(String idProfil, Joueur joueur) {
+	protected void installerMsgModifier() {
 
         MsgModifierJoueur msgModifierJoueur = NtroApp.newMessage(MsgModifierJoueur.class);
         
-        msgModifierJoueur.setIdProfil(idProfil);
-        msgModifierJoueur.setNewJoueur(joueur);
         
         boutonModifier.setOnAction(evtFx -> {
+        	Joueur newJoueur = new Joueur(textFieldId.getText(), textFieldNom.getText(), textFieldPseudo.getText());
+        	
+        	msgModifierJoueur.setIdProfil(textFieldId.getText());
+            msgModifierJoueur.setNewJoueur(newJoueur);
         	msgModifierJoueur.send();
         });
         
@@ -92,3 +93,4 @@ public class VueInformationsUnJoueur extends ViewFx {
     }
 
 }
+;  
