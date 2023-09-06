@@ -12,3 +12,4 @@ Il est vraiment en charge de la totalité des profils.
 3. On peut retirer seulement un profil de la liste qu'on séléctionne.
 4. On peut observer les attributs du profil séléctionné sur une autre vue. On peut connaître son id, son nom et son pseudo.
 5. Et on peut modifier les attributs d'un profil sur autre vue, la même que celle ou on les observe. On ne peut pas changer son id, mais on peut changer son nom et son pseudo. Le changement va apparaître directement dès qu'on clique sur le bouton «Sauvegarder le changement».
+6. Application internationalisé (Français et anglais).
