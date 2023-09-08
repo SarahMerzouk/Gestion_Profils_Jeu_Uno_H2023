@@ -1,5 +1,6 @@
-# Environnement graphique client et serveur
+# Travail de fin de session
 Fait par : Sarah Merzouk
+Pour le cours Environnement graphique client et serveur
 
 ## Description de l'application
 Traite la gestion de profils des joueurs du jeu UNO. 
