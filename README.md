@@ -1,6 +1,5 @@
 # Travail de fin de session
-Fait par : Sarah Merzouk
-Pour le cours Environnement graphique client et serveur
+Fait par Sarah Merzouk pour le cours Environnement graphique client et serveur (420-4F5-MO).
 
 ## Description de l'application
 Traite la gestion de profils des joueurs du jeu UNO. 
